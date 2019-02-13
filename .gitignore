@@ -1,0 +1,10 @@
+figures/
+data/
+results/
+*.o
+*.mod
+run
+pp_out.txt
+core*
+.fuse*
+.vscode
