@@ -1,0 +1,13 @@
+#!/bin/bash --login
+#$ -cwd
+#$ -pe ompi* 256
+#$ -N pproc_R0X
+#$ -o output/output_$JOB_ID_$TASK_ID.out
+#$ -j y 
+#$ -l h_rt=12:00:00
+#$ -m bea
+#$ -M p.hess@astro.physik.tu-berlin.de
+
+module add ompi-1.2.2
+
+mpirun -np $NSLOTS run < param/R0$SGE_TASK_ID.dat 

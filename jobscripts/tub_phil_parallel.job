@@ -1,14 +1,13 @@
 #!/bin/bash --login
 #$ -cwd
+#$ -pe ompi* 256
 #$ -N pproc_R01
-#$ -o output.txt
+#$ -o output/output_$JOB_ID
 #$ -j y 
 #$ -l h_rt=12:00:00
-#$ -l intel
 #$ -m bea
 #$ -M p.hess@astro.physik.tu-berlin.de
 
-echo $(date +"%Y-%m-%d_%r")
-pwd
+module add ompi-1.2.2
 
-./run < param/R01_param.dat
+mpirun -np $NSLOTS run < param/R01_param.dat 
