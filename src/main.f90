@@ -55,9 +55,9 @@ program main
         !strain rate statistics
         call strain_stats(iframe)
         !strain angles  histograms
-        call angle_histograms(iframe)
+        !call angle_histograms(iframe)
         !fluid element deformaton
-        call cauchy_green(iframe)
+        !call cauchy_green(iframe)
         
         do lpi = 1, proc_particles 
             !resetting variables 
