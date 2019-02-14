@@ -31,8 +31,6 @@ subroutine input
             
             write(file_out, '(A,"Position.",I3.3,".",I4.4,"_",I4.4)')readdir, index_1, index_2, index_3
 
-            ! reading the data from file into input arrays 
-            !--------------------------------------------------------------------------
             open(unit=201, file=file_out, form="unformatted", status='old', action='read')
                 
                 !counting number of records in input file 
@@ -158,46 +156,6 @@ subroutine input
         end if
     end do
         
-        !!sorting the input data
-        !do lp=1, max_lp
-        !    !finding particle id number
-        !    lp_loc=minloc(abs(lp_ID_list - lp), 1)
-
-        !    lp_vgr_global(lp,2,1,1)=lp_vgr_global_unsort(lp_loc,1,1)
-        !    lp_vgr_global(lp,2,1,2)=lp_vgr_global_unsort(lp_loc,1,2)
-        !    lp_vgr_global(lp,2,1,3)=lp_vgr_global_unsort(lp_loc,1,3)
-        !    lp_vgr_global(lp,2,2,1)=lp_vgr_global_unsort(lp_loc,2,1)
-        !    lp_vgr_global(lp,2,2,2)=lp_vgr_global_unsort(lp_loc,2,2)
-        !    lp_vgr_global(lp,2,2,3)=lp_vgr_global_unsort(lp_loc,2,3)
-        !    lp_vgr_global(lp,2,3,1)=lp_vgr_global_unsort(lp_loc,3,1)
-        !    lp_vgr_global(lp,2,3,2)=lp_vgr_global_unsort(lp_loc,3,2)    
-        !    lp_vgr_global(lp,2,3,3)=lp_vgr_global_unsort(lp_loc,3,3)    
-
-        !    if(mhd == 1)then
-        !        mag_field_global(lp,2,1)=mag_field_global_unsort(lp_loc,1)
-        !        mag_field_global(lp,2,2)=mag_field_global_unsort(lp_loc,2)
-        !        mag_field_global(lp,2,3)=mag_field_global_unsort(lp_loc,3)
-        !    end if
-        !end do
-
-        !normalizing the velocity gradient with the kolmogorov time scale
-        !lp_vgr_global(:,2,:,:)=lp_vgr_global(:,2,:,:)*t_kolmo
-
-        !if(iframe==start_frame) then
-        !    lp_vgr_global(:,1,:,:)=lp_vgr_global(:,2,:,:)
-        !end if
-
-
-    !if(iframe==start_frame) then
-    !    do j=1,3
-    !        do i=1,3
-    !            call MPI_SCATTER(lp_vgr_global(:,1,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-    !                              lp_vgr_local(:,1,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-    !                              root_process, MPI_COMM_WORLD, ierr)
-    !        end do
-    !    end do
-    !end if
-
     if(iframe==start_frame+1)then
         call MPI_BCAST(histo_frame, 1, MPI_INTEGER,&
                     root_process, MPI_COMM_WORLD, ierr)
@@ -208,17 +166,7 @@ subroutine input
                     root_process, MPI_COMM_WORLD, ierr)
     end if
 
-    !do j=1,3
-    !    do i=1,3
-    !        call MPI_SCATTER(lp_vgr_global(:,2,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-    !                          lp_vgr_local(:,2,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-    !                          root_process, MPI_COMM_WORLD, ierr)
-    !    end do
-    !end do
-
-    !if (proc_id .eq. root_process) then 
     deallocate(lp_ID_list, lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort,&
-            mag_field_global_unsort)
-    !end if
+                mag_field_global_unsort)
 
 end subroutine input

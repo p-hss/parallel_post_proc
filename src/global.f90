@@ -25,7 +25,9 @@ module global
     !time variables                                                     
     real*8                                  :: dt, dt_init, dt_fin 
     real*8                                  :: t_diss 
-    real*8                                  :: t_start, t_stop, io_t_start, io_t_stop, io_total_time 
+    real*8                                  :: t_start, t_stop 
+    real*8                                  :: io_t_start, io_t_stop, io_total_time 
+    real*8                                  :: sort_t_start, sort_t_stop, sort_total_time 
     real*8                                  :: t_kolmo 
     !histograms
     real*8                                  :: bin_size  
@@ -35,8 +37,6 @@ module global
     integer*4                               :: lp_number 
     integer, parameter                      :: seed = 8264
     real*8                                  :: le3_sign 
-    real*8, dimension(:,:,:,:), allocatable :: lp_vgr_global
-    real*8, dimension(:,:,:), allocatable   :: mag_field_global
     real*8, dimension(:,:,:,:), allocatable :: lp_vgr_local 
     real*8, dimension(:,:,:), allocatable   :: mag_field_local
     real*8, dimension(:,:,:,:), allocatable :: le_local 
@@ -187,7 +187,6 @@ subroutine initialize
     write(surf_angle_results_table, '(A, "tables/tab_results_angle_surf_",A,".txt")')outputdir, id 
     write(eval_results_table, '(A, "tables/tab_results_eval_",A,".txt")')outputdir, id 
     write(vel_file, '(A, "mean_vel_",A,".dat")')outputdir, id 
-    !write(pos_file, '("data/lp_pos_3.dat")')
 
     !initial values
     le_local = 0
@@ -211,7 +210,6 @@ subroutine initialize
     do i=1,3!unit matrix
         B_local(:,1,i,i) = 1
     end do
-
 
     !call initialize_random 
     call initialize_ordered 
@@ -322,9 +320,7 @@ subroutine alloc
     implicit none
 
     allocate(lp_vgr_local(max_lp/num_procs,2,3,3),&
-             lp_vgr_global(max_lp,2,3,3),&
              mag_field_local(max_lp/num_procs,2,3),&
-             mag_field_global(max_lp,2,3),&
              le_local(max_lp/num_procs,2,3,3), le_initial_local(max_lp/num_procs,3,3), le_length_local(max_lp/num_procs,2,3),&
              B_local(max_lp/num_procs,5,3,3),&
              A_local(max_lp/num_procs,2,3), A_length_local(max_lp/num_procs,2),&
@@ -346,7 +342,6 @@ subroutine dealloc
     implicit none
 
     deallocate(lp_vgr_local, mag_field_local,&
-              lp_vgr_global, mag_field_global,&
               le_local, le_initial_local, le_length_local, &
               A_local, A_length_local, &
               B_local, zeta_mean, zeta_var, zeta_skew, zeta_kurt,&
