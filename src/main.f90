@@ -20,7 +20,7 @@ program main
     integer :: i,lpi  
     integer  status(MPI_STATUS_SIZE)
 
-    call cpu_time(t_start)
+    if (proc_id .eq. root_process) call cpu_time(t_start)
     !Let process 0 be the root process.
     root_process = 0
     
@@ -33,6 +33,7 @@ program main
     call input_parameters
 
     iframe = start_frame !time frame number
+    io_total_time=0
 
     !allocating accoring to pariticle number
     call alloc

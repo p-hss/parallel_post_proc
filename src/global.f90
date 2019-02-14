@@ -23,11 +23,9 @@ module global
     integer                                 :: num_procs, proc_id, proc_particles
     integer                                 :: root_process, ierr
     !time variables                                                     
-    real*8                                  :: time 
-    real*8                                  :: dt_init, dt_fin 
-    real*8                                  :: dt 
-    real*8                                  :: t_start, t_stop 
+    real*8                                  :: dt, dt_init, dt_fin 
     real*8                                  :: t_diss 
+    real*8                                  :: t_start, t_stop, io_t_start, io_t_stop, io_total_time 
     real*8                                  :: t_kolmo 
     !histograms
     real*8                                  :: bin_size  
@@ -53,7 +51,6 @@ module global
     real*8, dimension(:,:), allocatable     :: gamma_line, gamma_line_var, gamma_surf, gamma_surf_var
     real*8, dimension(:), allocatable       :: theta_var, phi_var
 
-    integer                                 :: fcount = 0 !number of records in binary file
     character*26                            :: readdir
     character*13                            :: outputdir
     character*140                           :: file_out, vel_file, line_evo_file, surf_evo_file,&
@@ -325,7 +322,9 @@ subroutine alloc
     implicit none
 
     allocate(lp_vgr_local(max_lp/num_procs,2,3,3),&
+             lp_vgr_global(max_lp,2,3,3),&
              mag_field_local(max_lp/num_procs,2,3),&
+             mag_field_global(max_lp,2,3),&
              le_local(max_lp/num_procs,2,3,3), le_initial_local(max_lp/num_procs,3,3), le_length_local(max_lp/num_procs,2,3),&
              B_local(max_lp/num_procs,5,3,3),&
              A_local(max_lp/num_procs,2,3), A_length_local(max_lp/num_procs,2),&
@@ -347,6 +346,7 @@ subroutine dealloc
     implicit none
 
     deallocate(lp_vgr_local, mag_field_local,&
+              lp_vgr_global, mag_field_global,&
               le_local, le_initial_local, le_length_local, &
               A_local, A_length_local, &
               B_local, zeta_mean, zeta_var, zeta_skew, zeta_kurt,&

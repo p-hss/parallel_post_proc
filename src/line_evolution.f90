@@ -108,11 +108,6 @@ subroutine growth_rates(frame)
         call mean(lpi, zeta(lpi), sum_mean)
     end do
 
-    if(frame == histo_frame)then
-        mode="zeta"
-        call histogram1D(zeta, mode)
-    end if
-
     call MPI_REDUCE(sum_mean, sum_mean_global, 1, MPI_DOUBLE_PRECISION,&
                     MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
@@ -142,6 +137,12 @@ subroutine growth_rates(frame)
     zeta_skew(frame)=sum_skew_global/(real(max_lp)*var_global**(3./2.))
     zeta_kurt(frame)=sum_kurt_global/(real(max_lp)*var_global**(4./2.))
 
+    if(frame == histo_frame)then
+        mode="zeta"
+        call histogram1D(zeta, mode)
+    end if
+
+
     !compute the surface stretching rate xi
     do lpi = 1, proc_particles!loop over all particles per processor
         
@@ -151,10 +152,6 @@ subroutine growth_rates(frame)
         call mean(lpi, xi(lpi), sum_mean)
      end do
 
-    if(frame == histo_frame)then
-        mode="xi"
-        call histogram1D(zeta, mode)
-    end if
 
     call MPI_REDUCE(sum_mean, sum_mean_global, 1, MPI_DOUBLE_PRECISION,&
                     MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
@@ -184,6 +181,11 @@ subroutine growth_rates(frame)
     xi_var(frame)=var_global
     xi_skew(frame)=sum_skew_global/(real(max_lp)*var_global**(3./2.))
     xi_kurt(frame)=sum_kurt_global/(real(max_lp)*var_global**(4./2.))
+
+    if(frame == histo_frame)then
+        mode="xi"
+        call histogram1D(xi, mode)
+    end if
 
     theta_mean = -2._8*zeta_mean(frame) + xi_mean(frame)
     phi_mean = -(zeta_mean(frame) + xi_mean(frame))
@@ -223,6 +225,8 @@ subroutine growth_rates(frame)
             "mean[zeta]:", zeta_mean(frame), "var[zeta]:", zeta_var(frame),&
             "skew[zeta]:", zeta_skew(frame), "kurt[zeta]:", zeta_kurt(frame)
     end if
+
+
 
 end subroutine growth_rates
 

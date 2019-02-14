@@ -98,12 +98,10 @@ subroutine histogram1D(variable, mode)
     integer :: max_val, count_excess
     integer :: bin, number_bin
     integer, dimension(2) :: max_val_w 
-    real*8, dimension(proc_particles) :: variable
+    real*8, dimension(proc_particles), intent(in) :: variable
     real*8, dimension(:), allocatable :: histo, histo_global 
     character*10 :: mode
 
-    !----------------1D zeta histogram----------------------------------------------
-    !max_val = ceiling(maxval(abs(zeta(:,frame))))
     max_val = 10
     number_bin = int(2*max_val/bin_size) 
 
@@ -140,6 +138,7 @@ subroutine histogram1D(variable, mode)
     end if
 
     deallocate(histo, histo_global)
+
 
 end subroutine histogram1D
 
