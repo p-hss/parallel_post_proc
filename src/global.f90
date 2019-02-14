@@ -25,7 +25,7 @@ module global
     !time variables                                                     
     real*8                                  :: dt, dt_init, dt_fin 
     real*8                                  :: t_diss 
-    real*8                                  :: t_start, t_stop 
+    real*8                                  :: t_start, t_stop, io_t_start, io_t_stop, io_total_time 
     real*8                                  :: t_kolmo 
     !histograms
     real*8                                  :: bin_size  

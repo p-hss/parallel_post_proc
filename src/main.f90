@@ -20,7 +20,7 @@ program main
     integer :: i,lpi  
     integer  status(MPI_STATUS_SIZE)
 
-    call cpu_time(t_start)
+    if (proc_id .eq. root_process) call cpu_time(t_start)
     !Let process 0 be the root process.
     root_process = 0
     
@@ -33,6 +33,7 @@ program main
     call input_parameters
 
     iframe = start_frame !time frame number
+    io_total_time=0
 
     !allocating accoring to pariticle number
     call alloc
@@ -55,9 +56,9 @@ program main
         !strain rate statistics
         call strain_stats(iframe)
         !strain angles  histograms
-        !call angle_histograms(iframe)
+        call angle_histograms(iframe)
         !fluid element deformaton
-        !call cauchy_green(iframe)
+        call cauchy_green(iframe)
         
         do lpi = 1, proc_particles 
             !resetting variables 
