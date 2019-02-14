@@ -1,0 +1,200 @@
+ ========================================================
+           Line Element Deformation Simulation
+ ========================================================
+                         simulation ID:      R02
+                                   MHD:        1
+ --------------------------------------------------------
+                 Kolmogorov time scale:    0.292
+          number of lagrange particles:  1048576
+                         number of PEs:      256
+            number of particles per PE:     4096
+      number of input files/time frame:        8
+ --------------------------------------------------------
+                      MHDT start frame:     1400
+                        MHDT end frame:     2500
+                        histogram time:       20
+    start time for correlation measure:       20
+      end time for correlation measure:       50
+               start time for averages:       20
+ --------------------------------------------------------
+        zeta and xi histogram bin size:    0.025
+       cauchy green histogram bin size:    0.250
+             angle histograms bin size:    0.025
+ ========================================================
+000   %     mean[zeta]:   1.998E-02     var[zeta]:   1.364E-01    skew[zeta]:  -6.644E-02    kurt[zeta]:   5.043E+00000   %     mean[zeta]:   3.965E-02     var[zeta]:   1.353E-01    skew[zeta]:   4.575E-02    kurt[zeta]:   4.936E+00000   %     mean[zeta]:   5.874E-02     var[zeta]:   1.347E-01    skew[zeta]:   1.313E-01    kurt[zeta]:   4.913E+00000   %     mean[zeta]:   7.687E-02     var[zeta]:   1.347E-01    skew[zeta]:   2.124E-01    kurt[zeta]:   4.931E+00000   %     mean[zeta]:   9.378E-02     var[zeta]:   1.348E-01    skew[zeta]:   2.917E-01    kurt[zeta]:   5.004E+00000   %     mean[zeta]:   1.093E-01     var[zeta]:   1.344E-01    skew[zeta]:   3.512E-01    kurt[zeta]:   5.049E+00000   %     mean[zeta]:   1.234E-01     var[zeta]:   1.336E-01    skew[zeta]:   3.853E-01    kurt[zeta]:   5.030E+00000   %     mean[zeta]:   1.361E-01     var[zeta]:   1.324E-01    skew[zeta]:   3.990E-01    kurt[zeta]:   4.957E+00000   %     mean[zeta]:   1.474E-01     var[zeta]:   1.307E-01    skew[zeta]:   3.967E-01    kurt[zeta]:   4.859E+00000   %     mean[zeta]:   1.573E-01     var[zeta]:   1.289E-01    skew[zeta]:   3.832E-01    kurt[zeta]:   4.751E+00001   %     mean[zeta]:   1.661E-01     var[zeta]:   1.268E-01    skew[zeta]:   3.638E-01    kurt[zeta]:   4.646E+00001   %     mean[zeta]:   1.736E-01     var[zeta]:   1.247E-01    skew[zeta]:   3.414E-01    kurt[zeta]:   4.562E+00001   %     mean[zeta]:   1.801E-01     var[zeta]:   1.225E-01    skew[zeta]:   3.165E-01    kurt[zeta]:   4.502E+00001   %     mean[zeta]:   1.857E-01     var[zeta]:   1.204E-01    skew[zeta]:   2.913E-01    kurt[zeta]:   4.460E+00001   %     mean[zeta]:   1.904E-01     var[zeta]:   1.182E-01    skew[zeta]:   2.660E-01    kurt[zeta]:   4.422E+00001   %     mean[zeta]:   1.943E-01     var[zeta]:   1.161E-01    skew[zeta]:   2.407E-01    kurt[zeta]:   4.393E+00001   %     mean[zeta]:   1.975E-01     var[zeta]:   1.141E-01    skew[zeta]:   2.160E-01    kurt[zeta]:   4.372E+00001   %     mean[zeta]:   2.001E-01     var[zeta]:   1.123E-01    skew[zeta]:   1.926E-01    kurt[zeta]:   4.365E+00--------------------------------------------------------------------------
+A daemon (pid 28594) died unexpectedly with status 137 while attempting
+to launch so we are aborting.
+
+There may be more information reported by the environment (see above).
+
+This may be because the daemon was unable to find all the needed shared
+libraries on the remote node. You may set your LD_LIBRARY_PATH to have the
+location of the shared libraries on the remote nodes and this will
+automatically be forwarded to the remote nodes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that the job aborted, but has no info as to the process
+that caused that situation.
+--------------------------------------------------------------------------
+[node279:22494] [[7055,0],2] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node279:22494] *** Process received signal ***
+[node279:22494] Signal: Aborted (6)
+[node279:22494] Signal code:  (-6)
+[node271:31304] [[7055,0],4] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node271:31304] *** Process received signal ***
+[node271:31304] Signal: Aborted (6)
+[node271:31304] Signal code:  (-6)
+[node294:19641] [[7055,0],1] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node294:19641] *** Process received signal ***
+[node294:19641] Signal: Aborted (6)
+[node294:19641] Signal code:  (-6)
+[node279:22494] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node279:22494] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node279:22494] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node279:22494] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node279:22494] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node279:22494] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node279:22494] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node279:22494] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node279:22494] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node279:22494] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node279:22494] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node279:22494] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node279:22494] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node279:22494] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node279:22494] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node279:22494] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node279:22494] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node279:22494] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node279:22494] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node279:22494] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node279:22494] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node279:22494] *** End of error message ***
+[node271:31304] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node271:31304] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node271:31304] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node271:31304] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node271:31304] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node271:31304] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node271:31304] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node271:31304] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node271:31304] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node271:31304] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node271:31304] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node271:31304] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node271:31304] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node271:31304] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node271:31304] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node271:31304] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node271:31304] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node271:31304] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node271:31304] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node271:31304] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node271:31304] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node271:31304] *** End of error message ***
+[node294:19641] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node294:19641] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node294:19641] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node294:19641] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node294:19641] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node294:19641] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node294:19641] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node294:19641] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node294:19641] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node294:19641] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node294:19641] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node294:19641] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node294:19641] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node294:19641] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node294:19641] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node294:19641] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node294:19641] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node294:19641] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node294:19641] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node294:19641] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node294:19641] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node294:19641] *** End of error message ***
+[node285:09747] [[7055,0],5] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node285:09747] *** Process received signal ***
+[node285:09747] Signal: Aborted (6)
+[node285:09747] Signal code:  (-6)
+[node280:02432] [[7055,0],3] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node280:02432] *** Process received signal ***
+[node280:02432] Signal: Aborted (6)
+[node280:02432] Signal code:  (-6)
+[node280:02432] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node280:02432] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node280:02432] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node280:02432] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node280:02432] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node280:02432] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node280:02432] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node280:02432] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node280:02432] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node280:02432] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node280:02432] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node280:02432] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node280:02432] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node280:02432] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node280:02432] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node280:02432] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node280:02432] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node280:02432] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node280:02432] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node280:02432] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node280:02432] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node280:02432] *** End of error message ***
+[node285:09747] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node285:09747] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node285:09747] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node285:09747] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node285:09747] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node285:09747] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node285:09747] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node285:09747] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node285:09747] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node285:09747] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node285:09747] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node285:09747] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node285:09747] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node285:09747] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node285:09747] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node285:09747] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node285:09747] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node285:09747] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node285:09747] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node285:09747] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node285:09747] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node285:09747] *** End of error message ***
+bash: line 1: 22494 Aborted                 (core dumped) /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted -mca ess env -mca orte_ess_jobid 462356480 -mca orte_ess_vpid 2 -mca orte_ess_num_procs 22 --hnp-uri "462356480.0;tcp://10.9.2.88:36792;tcp://10.10.2.88:36792" -mca plm rsh
+bash: line 1: 31304 Aborted                 (core dumped) /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted -mca ess env -mca orte_ess_jobid 462356480 -mca orte_ess_vpid 4 -mca orte_ess_num_procs 22 --hnp-uri "462356480.0;tcp://10.9.2.88:36792;tcp://10.10.2.88:36792" -mca plm rsh
+bash: line 1:  2432 Aborted                 (core dumped) /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted -mca ess env -mca orte_ess_jobid 462356480 -mca orte_ess_vpid 3 -mca orte_ess_num_procs 22 --hnp-uri "462356480.0;tcp://10.9.2.88:36792;tcp://10.10.2.88:36792" -mca plm rsh
+bash: line 1: 19641 Aborted                 (core dumped) /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted -mca ess env -mca orte_ess_jobid 462356480 -mca orte_ess_vpid 1 -mca orte_ess_num_procs 22 --hnp-uri "462356480.0;tcp://10.9.2.88:36792;tcp://10.10.2.88:36792" -mca plm rsh
+[node276:25605] [[7055,0],7] ORTED_CMD_PROCESSOR: STUCK IN INFINITE LOOP - ABORTING
+[node276:25605] *** Process received signal ***
+[node276:25605] Signal: Aborted (6)
+[node276:25605] Signal code:  (-6)
+[node276:25605] [ 0] /usr/lib64/libpthread.so.0(+0xf5d0) [0x2aaaabb095d0]
+[node276:25605] [ 1] /usr/lib64/libc.so.6(gsignal+0x37) [0x2aaaabd4c207]
+[node276:25605] [ 2] /usr/lib64/libc.so.6(abort+0x148) [0x2aaaabd4d8f8]
+[node276:25605] [ 3] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x47717) [0x2aaaaad16717]
+[node276:25605] [ 4] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node276:25605] [ 5] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node276:25605] [ 6] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_grpcomm_bad.so(+0x1a85) [0x2aaaad51ca85]
+[node276:25605] [ 7] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_ess_base_orted_finalize+0x1ca) [0x2aaaaad17e6a]
+[node276:25605] [ 8] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/openmpi/mca_ess_env.so(+0x17ad) [0x2aaaac6ef7ad]
+[node276:25605] [ 9] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_finalize+0x49) [0x2aaaaacf9149]
+[node276:25605] [10] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x42fd1) [0x2aaaaad11fd1]
+[node276:25605] [11] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node276:25605] [12] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_progress+0xa6) [0x2aaaaad3c5f6]
+[node276:25605] [13] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_trigger_event+0x4f) [0x2aaaaad025ff]
+[node276:25605] [14] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(+0x44875) [0x2aaaaad13875]
+[node276:25605] [15] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon_cmd_processor+0x150) [0x2aaaaad16260]
+[node276:25605] [16] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(opal_event_base_loop+0x32e) [0x2aaaaad50aae]
+[node276:25605] [17] /afs/math/software/openmpi/gcc/openmpi-1.5.5/lib64/libopen-rte.so.4(orte_daemon+0xc8f) [0x2aaaaad12d4f]
+[node276:25605] [18] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted(main+0x4a) [0x4008da]
+[node276:25605] [19] /usr/lib64/libc.so.6(__libc_start_main+0xf5) [0x2aaaabd383d5]
+[node276:25605] [20] /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted() [0x40092d]
+[node276:25605] *** End of error message ***
+bash: line 1: 25605 Aborted                 (core dumped) /afs/math/software/openmpi/gcc/openmpi-1.5.5/bin/orted -mca ess env -mca orte_ess_jobid 462356480 -mca orte_ess_vpid 7 -mca orte_ess_num_procs 22 --hnp-uri "462356480.0;tcp://10.9.2.88:36792;tcp://10.10.2.88:36792" -mca plm rsh
+[node300:27985] [[7055,0],14] routed:binomial: Connection to lifeline [[7055,0],0] lost

@@ -1,0 +1,24 @@
+ ========================================================
+           Line Element Deformation Simulation
+ ========================================================
+                         simulation ID:      R03
+                                   MHD:        1
+ --------------------------------------------------------
+                 Kolmogorov time scale:    0.251
+          number of lagrange particles:  1048576
+                         number of PEs:      256
+            number of particles per PE:     4096
+      number of input files/time frame:        8
+ --------------------------------------------------------
+                      MHDT start frame:     1400
+                        MHDT end frame:     2500
+                        histogram time:       20
+    start time for correlation measure:       20
+      end time for correlation measure:       50
+               start time for averages:       20
+ --------------------------------------------------------
+        zeta and xi histogram bin size:    0.025
+       cauchy green histogram bin size:    0.250
+             angle histograms bin size:    0.025
+ ========================================================
+000   %     mean[zeta]:   2.613E-02     var[zeta]:   1.450E-01    skew[zeta]:  -1.194E-02    kurt[zeta]:   5.502E+00000   %     mean[zeta]:   5.089E-02     var[zeta]:   1.454E-01    skew[zeta]:   1.234E-01    kurt[zeta]:   5.529E+00000   %     mean[zeta]:   7.401E-02     var[zeta]:   1.455E-01    skew[zeta]:   2.330E-01    kurt[zeta]:   5.490E+00000   %     mean[zeta]:   9.520E-02     var[zeta]:   1.449E-01    skew[zeta]:   3.100E-01    kurt[zeta]:   5.385E+00000   %     mean[zeta]:   1.143E-01     var[zeta]:   1.437E-01    skew[zeta]:   3.564E-01    kurt[zeta]:   5.268E+00000   %     mean[zeta]:   1.312E-01     var[zeta]:   1.419E-01    skew[zeta]:   3.789E-01    kurt[zeta]:   5.147E+00000   %     mean[zeta]:   1.459E-01     var[zeta]:   1.397E-01    skew[zeta]:   3.873E-01    kurt[zeta]:   5.036E+00000   %     mean[zeta]:   1.586E-01     var[zeta]:   1.370E-01    skew[zeta]:   3.871E-01    kurt[zeta]:   4.932E+00000   %     mean[zeta]:   1.695E-01     var[zeta]:   1.341E-01    skew[zeta]:   3.794E-01    kurt[zeta]:   4.844E+00000   %     mean[zeta]:   1.786E-01     var[zeta]:   1.309E-01    skew[zeta]:   3.662E-01    kurt[zeta]:   4.760E+00001   %     mean[zeta]:   1.862E-01     var[zeta]:   1.277E-01    skew[zeta]:   3.482E-01    kurt[zeta]:   4.681E+00001   %     mean[zeta]:   1.924E-01     var[zeta]:   1.246E-01    skew[zeta]:   3.277E-01    kurt[zeta]:   4.625E+00001   %     mean[zeta]:   1.975E-01     var[zeta]:   1.215E-01    skew[zeta]:   3.065E-01    kurt[zeta]:   4.576E+00001   %     mean[zeta]:   2.015E-01     var[zeta]:   1.186E-01    skew[zeta]:   2.868E-01    kurt[zeta]:   4.561E+00001   %     mean[zeta]:   2.045E-01     var[zeta]:   1.159E-01    skew[zeta]:   2.689E-01    kurt[zeta]:   4.576E+00001   %     mean[zeta]:   2.068E-01     var[zeta]:   1.133E-01    skew[zeta]:   2.488E-01    kurt[zeta]:   4.601E+00001   %     mean[zeta]:   2.084E-01     var[zeta]:   1.109E-01    skew[zeta]:   2.270E-01    kurt[zeta]:   4.625E+00001   %     mean[zeta]:   2.095E-01     var[zeta]:   1.087E-01    skew[zeta]:   2.054E-01    kurt[zeta]:   4.649E+00001   %     mean[zeta]:   2.100E-01     var[zeta]:   1.067E-01    skew[zeta]:   1.862E-01    kurt[zeta]:   4.664E+00
