@@ -118,19 +118,19 @@ subroutine input
                      lp_ID_list_local(:), max_lp/num_procs, MPI_INTEGER,&
                      root_process, MPI_COMM_WORLD, ierr)
 
-    do j=1,3
-        do i=1,3
-            call MPI_SCATTER(lp_vgr_global_unsort(:,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                             lp_vgr_local_unsort(:,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+    !do j=1,3
+    !    do i=1,3
+            call MPI_SCATTER(lp_vgr_global_unsort(:,:,:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                             lp_vgr_local_unsort(:,:,:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
                              root_process, MPI_COMM_WORLD, ierr)
-        end do
-    end do
+    !    end do
+    !end do
 
-    do i=1,3
-        call MPI_SCATTER(mag_field_global_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                         mag_field_local_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+    !do i=1,3
+        call MPI_SCATTER(mag_field_global_unsort(:,:), max_lp/num_procs*3, MPI_DOUBLE_PRECISION,&
+                         mag_field_local_unsort(:,:), max_lp/num_procs*3, MPI_DOUBLE_PRECISION,&
                          root_process, MPI_COMM_WORLD, ierr)
-    end do
+    !end do
 
     if (proc_id .eq. root_process)then
         call cpu_time(comm_t_stop)

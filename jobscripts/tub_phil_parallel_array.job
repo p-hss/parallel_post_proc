@@ -1,8 +1,8 @@
 #!/bin/bash --login
 #$ -cwd
-#$ -pe ompi* 4
-#$ -N pproc_B0X
-#$ -o output/output_$JOB_ID_$TASK_ID.out
+#$ -pe ompi* 32
+#$ -N pproc_C0X
+#$ -o output/$JOB_ID_$TASK_ID.out
 #$ -j y 
 #$ -l h_rt=12:00:00
 #$ -m bea
@@ -10,4 +10,4 @@
 
 module add ompi-1.2.2
 
-mpirun -np $NSLOTS run < param/B0$SGE_TASK_ID.dat 
+mpirun -np $NSLOTS run < param/C0$SGE_TASK_ID.dat 

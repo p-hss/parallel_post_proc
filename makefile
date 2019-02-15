@@ -5,7 +5,7 @@ vpath %.f90 $(sourcedir)
 vpath %.o $(objectdir) 
 vpath %.mod $(objectdir) 
 
-CFlaggs = -J$(objectdir) -O0 -Wall -Wno-unused -fbounds-check -g -pg
+CFlaggs = -J$(objectdir) -O3 -Wall -Wno-unused -fbounds-check
 LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 FC = mpif90 
 
