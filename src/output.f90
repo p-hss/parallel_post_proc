@@ -11,6 +11,7 @@ subroutine final_out
     simulation_time = t_stop - t_start
 
     !Final output 
+    print*, "--------------------------------------------------------"
     write(*,'(A30, I3, A6, I3, A6)')"Simulation time: ", int((simulation_time)/60), "[min]", &
           mod(int((simulation_time)),60), "[sec]"
     write(*,'(A30, I3, A6, I3, A6)')"File loading time: ", int((io_total_time)/60), "[min]", &
