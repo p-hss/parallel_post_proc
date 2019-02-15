@@ -25,10 +25,10 @@ module global
     !time variables                                                     
     real*8                                  :: dt, dt_init, dt_fin 
     real*8                                  :: t_diss 
-    real*8                                  :: t_start, t_stop 
+    real*8                                  :: t_start, t_stop
     real*8                                  :: io_t_start, io_t_stop, io_total_time 
-    real*8                                  :: sort_t_start, sort_t_stop, sort_total_time 
-    real*8                                  :: comm_t_start, comm_t_stop, comm_total_time 
+    real*8, dimension(:), allocatable       :: sort_t_start, sort_t_stop, sort_total_time 
+    real*8, dimension(:), allocatable       :: comm_t_start, comm_t_stop, comm_total_time 
     real*8                                  :: t_kolmo 
     !histograms
     real*8                                  :: bin_size  
@@ -205,6 +205,9 @@ subroutine initialize
     gamma_surf_var = 0
     theta_var = 0
     phi_var = 0
+    io_total_time=0
+    sort_total_time=0
+    comm_total_time=0
 
     B_local(:,1,:,:) = 0
 
@@ -321,6 +324,8 @@ subroutine alloc
     implicit none
 
     allocate(lp_vgr_local(max_lp/num_procs,2,3,3),&
+             sort_t_start(num_procs), sort_t_stop(num_procs), sort_total_time(num_procs),&
+             comm_t_start(num_procs), comm_t_stop(num_procs), comm_total_time(num_procs),& 
              mag_field_local(max_lp/num_procs,2,3),&
              le_local(max_lp/num_procs,2,3,3), le_initial_local(max_lp/num_procs,3,3), le_length_local(max_lp/num_procs,2,3),&
              B_local(max_lp/num_procs,5,3,3),&
@@ -343,6 +348,8 @@ subroutine dealloc
     implicit none
 
     deallocate(lp_vgr_local, mag_field_local,&
+              sort_t_start, sort_t_stop, sort_total_time,&
+              comm_t_start, comm_t_stop, comm_total_time,& 
               le_local, le_initial_local, le_length_local, &
               A_local, A_length_local, &
               B_local, zeta_mean, zeta_var, zeta_skew, zeta_kurt,&

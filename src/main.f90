@@ -24,12 +24,10 @@ program main
     call input_parameters
 
     iframe = start_frame !time frame number
-    io_total_time=0
-    sort_total_time=0
-    comm_total_time=0
 
     !allocating accoring to pariticle number
     call alloc
+   
     !initialize material elemets
     call initialize                
     !reading the Position.***.*** files from MHDT  
@@ -66,11 +64,8 @@ program main
         end do
     end do
 
-    if (proc_id .eq. root_process) then 
-        call output_time_averages 
-        call final_out
-    end if
-
+    call output_time_averages 
+    call final_out
     call dealloc
     call MPI_FINALIZE (ierr)
 end program main 

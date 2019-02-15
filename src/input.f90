@@ -112,7 +112,7 @@ subroutine input
         io_total_time = io_total_time + io_t_stop - io_t_start
     end if
 
-    if (proc_id .eq. root_process) call cpu_time(comm_t_start)
+    call cpu_time(comm_t_start(proc_id+1))
 
     call MPI_SCATTER(lp_ID_list(:), max_lp/num_procs, MPI_INTEGER,&
                      lp_ID_list_local(:), max_lp/num_procs, MPI_INTEGER,&
@@ -132,12 +132,10 @@ subroutine input
                          root_process, MPI_COMM_WORLD, ierr)
     !end do
 
-    if (proc_id .eq. root_process)then
-        call cpu_time(comm_t_stop)
-        comm_total_time = comm_total_time + comm_t_stop - comm_t_start
-    end if
+    call cpu_time(comm_t_stop(proc_id+1))
+    comm_total_time(proc_id+1) = comm_total_time(proc_id+1) + comm_t_stop(proc_id+1) - comm_t_start(proc_id+1)
 
-    if (proc_id .eq. root_process) call cpu_time(sort_t_start)
+    call cpu_time(sort_t_start(proc_id+1))
 
     do lp=1,proc_particles
 
@@ -169,10 +167,8 @@ subroutine input
         end if
     end do
 
-    if (proc_id .eq. root_process)then
-         call cpu_time(sort_t_stop)
-        sort_total_time = sort_total_time + sort_t_stop - sort_t_start
-    end if
+    call cpu_time(sort_t_stop(proc_id+1))
+    sort_total_time(proc_id+1) = sort_total_time(proc_id+1) + sort_t_stop(proc_id+1) - sort_t_start(proc_id+1)
         
     if(iframe==start_frame+1)then
         call MPI_BCAST(histo_frame, 1, MPI_INTEGER,&
