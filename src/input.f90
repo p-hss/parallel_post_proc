@@ -9,17 +9,19 @@ subroutine input
     integer :: index_1, index_2, index_3
     integer :: io,i,j,lp,k
     integer :: lp_loc, fcount
-    integer :: io_start, io_stop !start and end reading mhdt data into arrays for each ioproc frame
+    integer :: io_start, io_stop 
     real*8  :: time
-    real*8, dimension(:,:,:), allocatable :: lp_vgr_global_unsort !dimension(lp_number,2=old/new,3=Vxyz,3=Dxyz)
-    real*8, dimension(:,:), allocatable     :: lp_pos_unsort,lp_vel_unsort, mag_field_global_unsort !dimension(lp_number,3=xyz)
-    integer*4, dimension(:), allocatable    :: lp_ID_list!dimension(lp_number)
+    real*8, dimension(:,:,:), allocatable   :: lp_vgr_global_unsort, lp_vgr_local_unsort 
+    real*8, dimension(:,:), allocatable     :: lp_pos_unsort, lp_vel_unsort, mag_field_global_unsort, mag_field_local_unsort
+    integer*4, dimension(:), allocatable    :: lp_ID_list, lp_ID_list_local
 
-    allocate(lp_ID_list(max_lp), lp_pos_unsort(max_lp,3),&
+    allocate(lp_ID_list(max_lp), lp_ID_list_local(max_lp/num_procs), lp_pos_unsort(max_lp,3),&
             lp_vel_unsort(max_lp,3), lp_vgr_global_unsort(max_lp,3,3),&
-            mag_field_global_unsort(max_lp,3))
+            lp_vgr_local_unsort(max_lp/num_procs,3,3), mag_field_global_unsort(max_lp,3),&
+            mag_field_local_unsort(max_lp/num_procs,3)))
 
     if (proc_id .eq. root_process) call cpu_time(io_t_start)
+
     if (proc_id .eq. root_process) then 
 
         io_start=1
@@ -106,24 +108,35 @@ subroutine input
     end if
 
     if (proc_id .eq. root_process)then
-         call cpu_time(io_t_stop)
+        call cpu_time(io_t_stop)
         io_total_time = io_total_time + io_t_stop - io_t_start
     end if
+
+    if (proc_id .eq. root_process) call cpu_time(comm_t_start)
 
     do j=1,3
         do i=1,3
             call MPI_BCAST(lp_vgr_global_unsort(:,i,j), max_lp, MPI_DOUBLE_PRECISION,&
-                        root_process, MPI_COMM_WORLD, ierr)
+                           root_process, MPI_COMM_WORLD, ierr)
         end do
     end do
 
     do i=1,3
         call MPI_BCAST(mag_field_global_unsort(:,i), max_lp, MPI_DOUBLE_PRECISION,&
-                    root_process, MPI_COMM_WORLD, ierr)
+                       root_process, MPI_COMM_WORLD, ierr)
     end do
 
+    !if (proc_id .eq. root_process) print*, lp_ID_list(1:10)
+
     call MPI_BCAST(lp_ID_list(:), max_lp, MPI_INTEGER,&
-                root_process, MPI_COMM_WORLD, ierr)
+                   root_process, MPI_COMM_WORLD, ierr)
+
+    if (proc_id .eq. root_process)then
+        call cpu_time(comm_t_stop)
+        comm_total_time = comm_total_time + comm_t_stop - comm_t_start
+    end if
+
+    if (proc_id .eq. root_process) call cpu_time(sort_t_start)
 
     do lp= 1 + proc_id*proc_particles, (proc_id + 1)*proc_particles
 
@@ -155,6 +168,11 @@ subroutine input
             mag_field_local(k,2,3)=mag_field_global_unsort(lp_loc,3)
         end if
     end do
+
+    if (proc_id .eq. root_process)then
+         call cpu_time(sort_t_stop)
+        sort_total_time = sort_total_time + sort_t_stop - sort_t_start
+    end if
         
     if(iframe==start_frame+1)then
         call MPI_BCAST(histo_frame, 1, MPI_INTEGER,&
@@ -166,7 +184,7 @@ subroutine input
                     root_process, MPI_COMM_WORLD, ierr)
     end if
 
-    deallocate(lp_ID_list, lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort,&
-                mag_field_global_unsort)
+    deallocate(lp_ID_list, lp_ID_list_local,  lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort,&
+                lp_vgr_local_unsort, mag_field_global_unsort, mag_field_local_unsort)
 
 end subroutine input

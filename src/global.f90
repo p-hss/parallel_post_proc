@@ -28,6 +28,7 @@ module global
     real*8                                  :: t_start, t_stop 
     real*8                                  :: io_t_start, io_t_stop, io_total_time 
     real*8                                  :: sort_t_start, sort_t_stop, sort_total_time 
+    real*8                                  :: comm_t_start, comm_t_stop, comm_total_time 
     real*8                                  :: t_kolmo 
     !histograms
     real*8                                  :: bin_size  
