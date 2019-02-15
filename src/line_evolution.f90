@@ -152,7 +152,6 @@ subroutine growth_rates(frame)
         call mean(lpi, xi(lpi), sum_mean)
      end do
 
-
     call MPI_REDUCE(sum_mean, sum_mean_global, 1, MPI_DOUBLE_PRECISION,&
                     MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
@@ -224,9 +223,9 @@ subroutine growth_rates(frame)
             int((frame-start_frame)/real((max_frame-start_frame))*100)," % ",&
             "mean[zeta]:", zeta_mean(frame), "var[zeta]:", zeta_var(frame),&
             "skew[zeta]:", zeta_skew(frame), "kurt[zeta]:", zeta_kurt(frame)
+
+        if(iframe==max_frame) print*,""
     end if
-
-
 
 end subroutine growth_rates
 
@@ -293,4 +292,3 @@ subroutine kurt(i, x, sum_kurt, mean)
     sum_kurt=sum_kurt + (x - mean)**4
 
 end subroutine kurt
-

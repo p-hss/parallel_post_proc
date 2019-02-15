@@ -7,15 +7,19 @@ subroutine final_out
     real*8 :: simulation_time
 
 
-
     call cpu_time(t_stop)
     simulation_time = t_stop - t_start
 
     !Final output 
-    write(*,'(A50, I3, A6, I3, A6)')"Simulation time: ", int((simulation_time)/60), "[min]", &
+    print*, "--------------------------------------------------------"
+    write(*,'(A30, I3, A6, I3, A6)')"Simulation time: ", int((simulation_time)/60), "[min]", &
           mod(int((simulation_time)),60), "[sec]"
-    write(*,'(A50, I3, A6, I3, A6)')"I/O time: ", int((io_total_time)/60), "[min]", &
+    write(*,'(A30, I3, A6, I3, A6)')"Input reading time: ", int((io_total_time)/60), "[min]", &
           mod(int((io_total_time)),60), "[sec]"
+    write(*,'(A30, I3, A6, I3, A6)')"Input comm. time: ", int((comm_total_time)/60), "[min]", &
+          mod(int((comm_total_time)),60), "[sec]"
+    write(*,'(A30, I3, A6, I3, A6)')"Input sorting time: ", int((sort_total_time)/60), "[min]", &
+          mod(int((sort_total_time)),60), "[sec]"
     print*, "========================================================"
 end subroutine final_out
 
