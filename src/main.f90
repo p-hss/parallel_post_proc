@@ -1,16 +1,7 @@
 !----------------------------------------------------------------------------------
 ! Program for processing the mhdt data: 
 !   - computing the mean material line streching coefficients 
-! in the global module the following paramter need to be set:
-! start_frame: the first frame read from the Position.000.xxx_xxx files
-! max_frame  : the last frame - - - - - - - - - - - ""---------------
-! lp_number  : the number of lagrange particles
-! t_eddy     : the eddy turn over time scale 
-! t_kolmo    : the Kolmogorov time scale
-! the output is written to the data/ directory
-! gnuplot plots are stored in the figures/ directory
 !----------------------------------------------------------------------------------
-
 program main 
     use global
     use mpi
@@ -33,10 +24,10 @@ program main
     call input_parameters
 
     iframe = start_frame !time frame number
-    io_total_time=0
 
     !allocating accoring to pariticle number
     call alloc
+   
     !initialize material elemets
     call initialize                
     !reading the Position.***.*** files from MHDT  
@@ -46,7 +37,6 @@ program main
 
         !reading the Position.***.*** files from MHDT  
         call input
-
         !integrate B:
         call b_int
         !evolve material lines in time:
@@ -74,13 +64,8 @@ program main
         end do
     end do
 
-    !call histogram(histo_frame)
-    !call correlation(corr_start, corr_end)
-    if (proc_id .eq. root_process) then 
-        call output_time_averages 
-        call final_out
-    end if
-
+    call output_time_averages 
+    call final_out
     call dealloc
     call MPI_FINALIZE (ierr)
 end program main 

@@ -8,3 +8,5 @@ pp_out.txt
 core*
 .fuse*
 .vscode
+output/*
+!output/.gitkeep

@@ -3,20 +3,34 @@
 !----------------------------------------------------------------------------------------
 subroutine final_out
     use global
+    use mpi
     implicit none
     real*8 :: simulation_time
+    real*8, dimension(num_procs) :: sort_time_global, comm_time_global
 
+    call MPI_REDUCE(comm_total_time(:), comm_time_global(:), num_procs, MPI_DOUBLE_PRECISION,&
+                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
+    call MPI_REDUCE(sort_total_time(:), sort_time_global(:), num_procs, MPI_DOUBLE_PRECISION,&
+                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
-    call cpu_time(t_stop)
-    simulation_time = t_stop - t_start
+    if (proc_id .eq. root_process) then 
+        call cpu_time(t_stop)
+        simulation_time = t_stop - t_start
 
-    !Final output 
-    write(*,'(A50, I3, A6, I3, A6)')"Simulation time: ", int((simulation_time)/60), "[min]", &
-          mod(int((simulation_time)),60), "[sec]"
-    write(*,'(A50, I3, A6, I3, A6)')"I/O time: ", int((io_total_time)/60), "[min]", &
-          mod(int((io_total_time)),60), "[sec]"
-    print*, "========================================================"
+        !Final output 
+        print*, "--------------------------------------------------------"
+
+        write(*,'(A30, I3, A6, I3, A6)')"Simulation CPU time: ", int((simulation_time)/60), "[min]", &
+            mod(int((simulation_time)),60), "[sec]"
+        write(*,'(A30, I3, A6, I3, A6)')"Input reading CPU time: ", int((io_total_time)/60), "[min]", &
+            mod(int((io_total_time)),60), "[sec]"
+        write(*,'(A30, I3, A6, I3, A6)')"Input comm. CPU time: ", int(comm_time_global(1)/60), "[min]", &
+            mod(int(comm_time_global(1)),60), "[sec]"
+        write(*,'(A30, I3, A6, I3, A6)')"Input sorting CPU time: ", int(sort_time_global(1)/60), "[min]", &
+            mod(int(sort_time_global(1)),60), "[sec]"
+        print*, "========================================================"
+    end if
 end subroutine final_out
 
 !----------------------------------------------------------------------------------------
@@ -35,118 +49,120 @@ subroutine output_time_averages
     real*8, dimension(max_frame) :: buffer
     character(1) :: creturn
 
-    zeta_tave = time_average(zeta_mean(:))
-    zeta_var_tave = time_variance(zeta_mean(:))
+    if (proc_id .eq. root_process) then 
+        zeta_tave = time_average(zeta_mean(:))
+        zeta_var_tave = time_variance(zeta_mean(:))
 
-    xi_tave = time_average(xi_mean(:))
-    xi_var_tave = time_variance(xi_mean(:))
+        xi_tave = time_average(xi_mean(:))
+        xi_var_tave = time_variance(xi_mean(:))
 
-    buffer(:) =  eval_mean(1,:)
-    eval_tave(1) = time_average(buffer(:))
-    eval_var_tave(1) = time_variance(buffer(:))
-    buffer(:) =  eval_mean(2,:)
-    eval_tave(2) = time_average(buffer(:))
-    eval_var_tave(2) = time_variance(buffer(:))
-    buffer(:) =  eval_mean(3,:)
-    eval_tave(3) = time_average(buffer(:))
-    eval_var_tave(3) = time_variance(buffer(:))
-    
-    gamma_l_tave(1) = time_average(gamma_line(:,1))
-    gamma_l_tave(2) = time_average(gamma_line(:,2))
-    gamma_l_tave(3) = time_average(gamma_line(:,3))
-    gamma_l_tave(4) = time_average(gamma_line(:,4))
-    gamma_l_tave(5) = time_average(gamma_line(:,5))
-    gamma_l_var_tave(1) = time_variance(gamma_line(:,1))
-    gamma_l_var_tave(2) = time_variance(gamma_line(:,2))
-    gamma_l_var_tave(3) = time_variance(gamma_line(:,3))
-    gamma_l_var_tave(4) = time_variance(gamma_line(:,4))
-    gamma_l_var_tave(5) = time_variance(gamma_line(:,5))
-    gamma_a_tave(1) = time_average(gamma_surf(:,1))
-    gamma_a_tave(2) = time_average(gamma_surf(:,2))
-    gamma_a_tave(3) = time_average(gamma_surf(:,3))
-    gamma_a_tave(4) = time_average(gamma_surf(:,4))
-    gamma_a_tave(5) = time_average(gamma_surf(:,5))
-    gamma_a_var_tave(1) = time_variance(gamma_surf(:,1))
-    gamma_a_var_tave(2) = time_variance(gamma_surf(:,2))
-    gamma_a_var_tave(3) = time_variance(gamma_surf(:,3))
-    gamma_a_var_tave(4) = time_variance(gamma_surf(:,4))
-    gamma_a_var_tave(5) = time_variance(gamma_surf(:,5))
+        buffer(:) =  eval_mean(1,:)
+        eval_tave(1) = time_average(buffer(:))
+        eval_var_tave(1) = time_variance(buffer(:))
+        buffer(:) =  eval_mean(2,:)
+        eval_tave(2) = time_average(buffer(:))
+        eval_var_tave(2) = time_variance(buffer(:))
+        buffer(:) =  eval_mean(3,:)
+        eval_tave(3) = time_average(buffer(:))
+        eval_var_tave(3) = time_variance(buffer(:))
+        
+        gamma_l_tave(1) = time_average(gamma_line(:,1))
+        gamma_l_tave(2) = time_average(gamma_line(:,2))
+        gamma_l_tave(3) = time_average(gamma_line(:,3))
+        gamma_l_tave(4) = time_average(gamma_line(:,4))
+        gamma_l_tave(5) = time_average(gamma_line(:,5))
+        gamma_l_var_tave(1) = time_variance(gamma_line(:,1))
+        gamma_l_var_tave(2) = time_variance(gamma_line(:,2))
+        gamma_l_var_tave(3) = time_variance(gamma_line(:,3))
+        gamma_l_var_tave(4) = time_variance(gamma_line(:,4))
+        gamma_l_var_tave(5) = time_variance(gamma_line(:,5))
+        gamma_a_tave(1) = time_average(gamma_surf(:,1))
+        gamma_a_tave(2) = time_average(gamma_surf(:,2))
+        gamma_a_tave(3) = time_average(gamma_surf(:,3))
+        gamma_a_tave(4) = time_average(gamma_surf(:,4))
+        gamma_a_tave(5) = time_average(gamma_surf(:,5))
+        gamma_a_var_tave(1) = time_variance(gamma_surf(:,1))
+        gamma_a_var_tave(2) = time_variance(gamma_surf(:,2))
+        gamma_a_var_tave(3) = time_variance(gamma_surf(:,3))
+        gamma_a_var_tave(4) = time_variance(gamma_surf(:,4))
+        gamma_a_var_tave(5) = time_variance(gamma_surf(:,5))
 
-    buffer(:) = xi_mean(:) - 2._8*zeta_mean(:)  
-    theta_tave = time_average(buffer(:))
-    theta_var_tave = time_variance(buffer(:))
+        buffer(:) = xi_mean(:) - 2._8*zeta_mean(:)  
+        theta_tave = time_average(buffer(:))
+        theta_var_tave = time_variance(buffer(:))
 
-    buffer(:) = -(xi_mean(:) + zeta_mean(:))  
-    phi_tave = time_average(buffer(:))
-    phi_var_tave = time_variance(buffer(:))
+        buffer(:) = -(xi_mean(:) + zeta_mean(:))  
+        phi_tave = time_average(buffer(:))
+        phi_var_tave = time_variance(buffer(:))
 
-    10 format(A3,A1,I6.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
-    open(unit=102, file=results_table, action='write', form='formatted')
-        write(102,10) id, "&", max_lp, "&", (average_start_frame-start_frame)*dt, "&",&
-            (max_frame-start_frame)*dt, "&", zeta_tave, "&", sqrt(zeta_var_tave), "&",&
-            xi_tave, "&", sqrt(xi_var_tave), "\\"
-    close(102)
-
-    t_pdf=int(start_frame+(max_frame-start_frame)/2)
-
-    11 format(A3,A1,F10.3,2(A1,F10.3,A1,ES10.3E1,A1,ES10.3E1,A1,F10.3),A2)
-    open(unit=102, file=pdf_table, action='write', form='formatted')
-        write(102,11) id, "&",real(t_pdf*dt), "&",zeta_mean(t_pdf) , "&", zeta_var(t_pdf), "&",&
-               zeta_skew(t_pdf), "&", zeta_kurt(t_pdf), "&", xi_mean(t_pdf), "&",&
-               xi_var(t_pdf), "&", xi_skew(t_pdf), "&", zeta_kurt(t_pdf),"\\"
-    close(102)
-
-    20 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
-    open(unit=102, file=eval_results_table, action='write', form='formatted')
-        write(102,20) id, "&", eval_tave(1), "&", sqrt(eval_var_tave(1)),&
-            "&", eval_tave(2), "&", sqrt(eval_var_tave(2)),&
-            "&", eval_tave(3), "&", sqrt(eval_var_tave(3)),&
-            "&", theta_tave,   "&", sqrt(theta_var_tave),&
-            "&", phi_tave,     "&", sqrt(phi_var_tave), "\\"
-    close(102)
-
-    if(mhd == 1)then
-        30 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
-        open(unit=102, file=line_angle_results_table, action='write', form='formatted')
-            write(102,30) id, "&", gamma_l_tave(1), "&", sqrt(gamma_l_var_tave(1)),&  
-            "&", gamma_l_tave(2), "&", sqrt(gamma_l_var_tave(2)),&
-            "&", gamma_l_tave(3), "&", sqrt(gamma_l_var_tave(3)),&
-            "&", gamma_l_tave(4), "&", sqrt(gamma_l_var_tave(4)),&
-            "&", gamma_l_tave(5), "&", sqrt(gamma_l_var_tave(5)),"\\"
+        10 format(A3,A1,I8.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+        open(unit=102, file=results_table, action='write', form='formatted')
+            write(102,10) id, "&", max_lp, "&", (average_start_frame-start_frame)*dt, "&",&
+                (max_frame-start_frame)*dt, "&", zeta_tave, "&", sqrt(zeta_var_tave), "&",&
+                xi_tave, "&", sqrt(xi_var_tave), "\\"
         close(102)
-    end if
 
-    if(mhd == 0)then
-        40 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,A1,A1,A1,A2)
-        open(unit=102, file=line_angle_results_table, action='write', form='formatted')
-            write(102,40) id, "&", gamma_l_tave(1), "&", sqrt(gamma_l_var_tave(1)),&  
-            "&", gamma_l_tave(2), "&", sqrt(gamma_l_var_tave(2)),&
-            "&", gamma_l_tave(3), "&", sqrt(gamma_l_var_tave(3)),&
-            "&", gamma_l_tave(4), "&", sqrt(gamma_l_var_tave(4)),&
-                "&", "-", "&", "-","\\"
-        close(102)
-    end if
+        t_pdf=int(start_frame+(max_frame-start_frame)/2)
 
-    if(mhd == 1)then
-        50 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
-        open(unit=102, file=surf_angle_results_table, action='write', form='formatted')
-            write(102,50) id, "&", gamma_a_tave(1), "&", sqrt(gamma_a_var_tave(1)),&  
-            "&", gamma_a_tave(2), "&", sqrt(gamma_a_var_tave(2)),&
-            "&", gamma_a_tave(3), "&", sqrt(gamma_a_var_tave(3)),&
-            "&", gamma_a_tave(4), "&", sqrt(gamma_a_var_tave(4)),&
-            "&", gamma_a_tave(5), "&", sqrt(gamma_a_var_tave(5)),"\\"
+        11 format(A3,A1,F10.3,2(A1,F10.3,A1,ES10.3E1,A1,ES10.3E1,A1,F10.3),A2)
+        open(unit=102, file=pdf_table, action='write', form='formatted')
+            write(102,11) id, "&",real(t_pdf*dt), "&",zeta_mean(t_pdf) , "&", zeta_var(t_pdf), "&",&
+                zeta_skew(t_pdf), "&", zeta_kurt(t_pdf), "&", xi_mean(t_pdf), "&",&
+                xi_var(t_pdf), "&", xi_skew(t_pdf), "&", zeta_kurt(t_pdf),"\\"
         close(102)
-    end if
 
-    if(mhd == 0)then
-        60 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,A1,A1,A1,A2)
-        open(unit=102, file=surf_angle_results_table, action='write', form='formatted')
-            write(102,60) id, "&", gamma_a_tave(1), "&", sqrt(gamma_a_var_tave(1)),&  
-            "&", gamma_a_tave(2), "&", sqrt(gamma_a_var_tave(2)),&
-            "&", gamma_a_tave(3), "&", sqrt(gamma_a_var_tave(3)),&
-            "&", gamma_a_tave(4), "&", sqrt(gamma_a_var_tave(4)),&
-                "&", "-", "&", "-","\\"
+        20 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+        open(unit=102, file=eval_results_table, action='write', form='formatted')
+            write(102,20) id, "&", eval_tave(1), "&", sqrt(eval_var_tave(1)),&
+                "&", eval_tave(2), "&", sqrt(eval_var_tave(2)),&
+                "&", eval_tave(3), "&", sqrt(eval_var_tave(3)),&
+                "&", theta_tave,   "&", sqrt(theta_var_tave),&
+                "&", phi_tave,     "&", sqrt(phi_var_tave), "\\"
         close(102)
+
+        if(mhd == 1)then
+            30 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+            open(unit=102, file=line_angle_results_table, action='write', form='formatted')
+                write(102,30) id, "&", gamma_l_tave(1), "&", sqrt(gamma_l_var_tave(1)),&  
+                "&", gamma_l_tave(2), "&", sqrt(gamma_l_var_tave(2)),&
+                "&", gamma_l_tave(3), "&", sqrt(gamma_l_var_tave(3)),&
+                "&", gamma_l_tave(4), "&", sqrt(gamma_l_var_tave(4)),&
+                "&", gamma_l_tave(5), "&", sqrt(gamma_l_var_tave(5)),"\\"
+            close(102)
+        end if
+
+        if(mhd == 0)then
+            40 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,A1,A1,A1,A2)
+            open(unit=102, file=line_angle_results_table, action='write', form='formatted')
+                write(102,40) id, "&", gamma_l_tave(1), "&", sqrt(gamma_l_var_tave(1)),&  
+                "&", gamma_l_tave(2), "&", sqrt(gamma_l_var_tave(2)),&
+                "&", gamma_l_tave(3), "&", sqrt(gamma_l_var_tave(3)),&
+                "&", gamma_l_tave(4), "&", sqrt(gamma_l_var_tave(4)),&
+                    "&", "-", "&", "-","\\"
+            close(102)
+        end if
+
+        if(mhd == 1)then
+            50 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+            open(unit=102, file=surf_angle_results_table, action='write', form='formatted')
+                write(102,50) id, "&", gamma_a_tave(1), "&", sqrt(gamma_a_var_tave(1)),&  
+                "&", gamma_a_tave(2), "&", sqrt(gamma_a_var_tave(2)),&
+                "&", gamma_a_tave(3), "&", sqrt(gamma_a_var_tave(3)),&
+                "&", gamma_a_tave(4), "&", sqrt(gamma_a_var_tave(4)),&
+                "&", gamma_a_tave(5), "&", sqrt(gamma_a_var_tave(5)),"\\"
+            close(102)
+        end if
+
+        if(mhd == 0)then
+            60 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,A1,A1,A1,A2)
+            open(unit=102, file=surf_angle_results_table, action='write', form='formatted')
+                write(102,60) id, "&", gamma_a_tave(1), "&", sqrt(gamma_a_var_tave(1)),&  
+                "&", gamma_a_tave(2), "&", sqrt(gamma_a_var_tave(2)),&
+                "&", gamma_a_tave(3), "&", sqrt(gamma_a_var_tave(3)),&
+                "&", gamma_a_tave(4), "&", sqrt(gamma_a_var_tave(4)),&
+                    "&", "-", "&", "-","\\"
+            close(102)
+        end if
     end if
 
 end subroutine output_time_averages 
