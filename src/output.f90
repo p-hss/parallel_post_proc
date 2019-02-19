@@ -95,7 +95,7 @@ subroutine output_time_averages
         phi_tave = time_average(buffer(:))
         phi_var_tave = time_variance(buffer(:))
 
-        10 format(A3,A1,I6.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+        10 format(A3,A1,I8.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
         open(unit=102, file=results_table, action='write', form='formatted')
             write(102,10) id, "&", max_lp, "&", (average_start_frame-start_frame)*dt, "&",&
                 (max_frame-start_frame)*dt, "&", zeta_tave, "&", sqrt(zeta_var_tave), "&",&

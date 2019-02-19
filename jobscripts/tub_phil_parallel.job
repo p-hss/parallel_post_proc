@@ -10,4 +10,4 @@
 
 module add ompi-1.2.2
 
-mpirun -np $NSLOTS run < param/R01_param.dat 
+mpirun -np $NSLOTS run < param/R01.dat 
