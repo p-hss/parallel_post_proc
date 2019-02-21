@@ -11,14 +11,13 @@ subroutine input
     integer :: lp_loc, fcount
     integer :: io_start, io_stop 
     real*8  :: time
-    real*8, dimension(:,:,:), allocatable   :: lp_vgr_global_unsort, lp_vgr_local_unsort 
-    real*8, dimension(:,:), allocatable     :: lp_pos_unsort, lp_vel_unsort, mag_field_global_unsort, mag_field_local_unsort
+    real*8, dimension(:,:,:), allocatable   :: lp_vgr_global_unsort
+    real*8, dimension(:,:), allocatable     :: lp_pos_unsort, lp_vel_unsort, mag_field_global_unsort
     integer*4, dimension(:), allocatable    :: lp_ID_list, lp_ID_list_local
 
-    allocate(lp_ID_list(max_lp), lp_ID_list_local(max_lp/num_procs), lp_pos_unsort(max_lp,3),&
-            lp_vel_unsort(max_lp,3), lp_vgr_global_unsort(max_lp,3,3),&
-            lp_vgr_local_unsort(max_lp/num_procs,3,3), mag_field_global_unsort(max_lp,3),&
-            mag_field_local_unsort(max_lp/num_procs,3))
+    allocate(lp_ID_list(max_lp), lp_pos_unsort(max_lp,3),&
+             lp_vel_unsort(max_lp,3), lp_vgr_global_unsort(max_lp,3,3),&
+             mag_field_global_unsort(max_lp,3))
 
     if (proc_id .eq. root_process) call cpu_time(io_t_start)
 
@@ -114,22 +113,19 @@ subroutine input
 
     call cpu_time(comm_t_start(proc_id+1))
 
-    call MPI_SCATTER(lp_ID_list(:), max_lp/num_procs, MPI_INTEGER,&
-                     lp_ID_list_local(:), max_lp/num_procs, MPI_INTEGER,&
-                     root_process, MPI_COMM_WORLD, ierr)
+    call MPI_BCAST(lp_ID_list(:), max_lp, MPI_INTEGER,&
+                    root_process, MPI_COMM_WORLD, ierr)
 
     do j=1,3
         do i=1,3
-            call MPI_SCATTER(lp_vgr_global_unsort(:,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                             lp_vgr_local_unsort(:,i,j), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                             root_process, MPI_COMM_WORLD, ierr)
+            call MPI_BCAST(lp_vgr_global_unsort(:,i,j), max_lp, MPI_DOUBLE_PRECISION,&
+                            root_process, MPI_COMM_WORLD, ierr)
         end do
     end do
 
     do i=1,3
-        call MPI_SCATTER(mag_field_global_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                         mag_field_local_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                         root_process, MPI_COMM_WORLD, ierr)
+        call MPI_BCAST(mag_field_global_unsort(:,i), max_lp, MPI_DOUBLE_PRECISION,&
+                        root_process, MPI_COMM_WORLD, ierr)
     end do
 
     call cpu_time(comm_t_stop(proc_id+1))
@@ -137,33 +133,33 @@ subroutine input
 
     call cpu_time(sort_t_start(proc_id+1))
 
-    do lp=1,proc_particles
+    do lp= 1 + proc_id*proc_particles, (proc_id + 1)*proc_particles
 
-        !lp_vgr_local_unsort(lp,:,:)=transpose(lp_vgr_local_unsort(lp,:,:))
+        k=lp-proc_id*proc_particles
 
         !map unsorted index lp_loc to sorted block index lp 
-        lp_loc=minloc(abs(lp_ID_list_local - lp), 1)
+        lp_loc=minloc(abs(lp_ID_list - lp), 1)
 
-        lp_vgr_local(lp,2,1,1)=lp_vgr_local_unsort(lp_loc,1,1)
-        lp_vgr_local(lp,2,1,2)=lp_vgr_local_unsort(lp_loc,1,2)
-        lp_vgr_local(lp,2,1,3)=lp_vgr_local_unsort(lp_loc,1,3)
-        lp_vgr_local(lp,2,2,1)=lp_vgr_local_unsort(lp_loc,2,1)
-        lp_vgr_local(lp,2,2,2)=lp_vgr_local_unsort(lp_loc,2,2)
-        lp_vgr_local(lp,2,2,3)=lp_vgr_local_unsort(lp_loc,2,3)
-        lp_vgr_local(lp,2,3,1)=lp_vgr_local_unsort(lp_loc,3,1)
-        lp_vgr_local(lp,2,3,2)=lp_vgr_local_unsort(lp_loc,3,2)    
-        lp_vgr_local(lp,2,3,3)=lp_vgr_local_unsort(lp_loc,3,3)    
+        lp_vgr_local(k,2,1,1)=lp_vgr_global_unsort(lp_loc,1,1)
+        lp_vgr_local(k,2,1,2)=lp_vgr_global_unsort(lp_loc,1,2)
+        lp_vgr_local(k,2,1,3)=lp_vgr_global_unsort(lp_loc,1,3)
+        lp_vgr_local(k,2,2,1)=lp_vgr_global_unsort(lp_loc,2,1)
+        lp_vgr_local(k,2,2,2)=lp_vgr_global_unsort(lp_loc,2,2)
+        lp_vgr_local(k,2,2,3)=lp_vgr_global_unsort(lp_loc,2,3)
+        lp_vgr_local(k,2,3,1)=lp_vgr_global_unsort(lp_loc,3,1)
+        lp_vgr_local(k,2,3,2)=lp_vgr_global_unsort(lp_loc,3,2)    
+        lp_vgr_local(k,2,3,3)=lp_vgr_global_unsort(lp_loc,3,3)    
 
-        lp_vgr_local(lp,2,:,:)=lp_vgr_local(lp,2,:,:)*t_kolmo
+        lp_vgr_local(k,2,:,:)=lp_vgr_local(k,2,:,:)*t_kolmo
 
         if(iframe==start_frame) then
-            lp_vgr_local(:,1,:,:) = lp_vgr_local(:,2,:,:)
+            lp_vgr_local(k,1,:,:) = lp_vgr_local(k,2,:,:)
         end if
 
         if(mhd == 1)then
-            mag_field_local(lp,2,1)=mag_field_local_unsort(lp_loc,1)
-            mag_field_local(lp,2,2)=mag_field_local_unsort(lp_loc,2)
-            mag_field_local(lp,2,3)=mag_field_local_unsort(lp_loc,3)
+            mag_field_local(k,2,1)=mag_field_global_unsort(lp_loc,1)
+            mag_field_local(k,2,2)=mag_field_global_unsort(lp_loc,2)
+            mag_field_local(k,2,3)=mag_field_global_unsort(lp_loc,3)
         end if
     end do
 
@@ -180,7 +176,7 @@ subroutine input
                     root_process, MPI_COMM_WORLD, ierr)
     end if
 
-    deallocate(lp_ID_list, lp_ID_list_local,  lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort,&
-                lp_vgr_local_unsort, mag_field_global_unsort, mag_field_local_unsort)
+    deallocate(lp_ID_list, lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort,&
+                mag_field_global_unsort)
 
 end subroutine input
