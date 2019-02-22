@@ -222,8 +222,8 @@ subroutine growth_rates(frame)
         30 format(A1,I3.3,A5,4(A15, ES12.3))
         write(*,30,advance='no') creturn,& 
             int((frame-start_frame)/real((max_frame-start_frame))*100)," % ",&
-            "mean[zeta]:", zeta_mean(frame), "var[zeta]:", zeta_var(frame),&
-            "skew[zeta]:", zeta_skew(frame), "kurt[zeta]:", zeta_kurt(frame)
+           "mean[zeta]:", zeta_mean(frame), "var[zeta]:", zeta_var(frame),&
+           "skew[zeta]:", zeta_skew(frame), "kurt[zeta]:", zeta_kurt(frame)
 
         if(iframe==max_frame) print*,""
     end if

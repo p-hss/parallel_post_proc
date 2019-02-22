@@ -3,4 +3,4 @@
 make clean
 make
 #run the executable with 4 proccesses
-mpirun -np 4 run < param/B05.dat 
+mpirun -np 4 run < param/C05.dat 
