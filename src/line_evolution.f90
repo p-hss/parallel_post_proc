@@ -237,7 +237,7 @@ subroutine running_stats(i, xi, delta, M1, M2, M3, M4)
 
     delta = xi - M1
 
-    M1 = M1*(n-1)/n + xi/n
+    M1 = M1 + delta/n
 
     M4 = M4 + delta**4*(n-1)*(n**2-3._8*n+3)/n**3 + 6._8*delta**2*M2/n**2 - 4._8*delta*M3/n
 
