@@ -264,6 +264,7 @@ subroutine initialize_random
     use global
     implicit none
     integer :: i
+    real*8 :: rand
 
     !initializing 3 random oriented, orthogonal line elements per particle 
     call srand(seed) 
