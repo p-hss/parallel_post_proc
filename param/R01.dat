@@ -8,7 +8,7 @@ R01     !id                 -   simulation ID
 50      !corr_end_time      -   end time
 20      !average_start_time -   start time for the time averages
 20      !histo_time         -   time frame for histograms
-0.3694  !t_kolmo            -   kolmogorov time scale
+0.3427  !t_kolmo            -   kolmogorov time scale
 0.025   !bin_size           -   bin size for zeta, xi histograms
 0.25    !bin_size_w         -   bin size for cauchy green 3D histogram
 0.025   !bin_size_angle     -   bin size for angle histograms

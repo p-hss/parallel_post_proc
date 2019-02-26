@@ -1,6 +1,6 @@
 #!/bin/bash --login
 #$ -cwd
-#$ -pe ompi* 256
+#$ -pe ompi* 128
 #$ -N pproc_R0X
 #$ -o output/$JOB_ID_$TASK_ID.out
 #$ -j y 
