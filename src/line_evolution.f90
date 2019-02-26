@@ -80,16 +80,13 @@ subroutine growth_rates(frame)
     character(1)                :: creturn
     real*8                      :: zeta_sum_local, zeta_isum
     real*8                      :: delta, M1, M2, M3, M4
-    real*8                      :: mean_global, var_global, skew_global, kurt_global
-    real*8                      :: sum_mean, sum_var, sum_skew, sum_kurt
-    real*8                      :: sum_mean_global, sum_var_global, sum_skew_global, sum_kurt_global
     character*10                :: mode
     integer, dimension(MPI_STATUS_SIZE) :: status
-    real*8, dimension(:), allocatable       :: zeta_global
+    real*8, dimension(:), allocatable       :: zeta_global, xi_global
 
     if (proc_id .eq. root_process) then 
-        allocate(zeta_global(max_lp))
-        zeta_global=0
+        allocate(zeta_global(max_lp), xi_global(max_lp))
+        zeta_global=0; xi_global=0
     end if
 
     !===================compute the line stretching rate zeta===================
@@ -123,34 +120,6 @@ subroutine growth_rates(frame)
         zeta_kurt(frame)= max_lp*M4/M2**2 
     end if
 
-    !===================Compute the rest of the moments in parallel ===================
-    !call MPI_REDUCE(sum_mean, sum_mean_global, 1, MPI_DOUBLE_PRECISION,&
-    !                MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-
-    !mean_global=sum_mean_global/(real(max_lp))
-    !zeta_mean(frame)=mean_global
-
-    !call MPI_BCAST(mean_global, 1, MPI_DOUBLE_PRECISION,&
-    !            root_process, MPI_COMM_WORLD, ierr)
-
-    !do lpi = 1, proc_particles
-    !    call var( lpi, zeta(lpi), sum_var,  mean_global)
-    !    !call skew(lpi, zeta(lpi), sum_skew, mean_global)
-    !    call kurt(lpi, zeta(lpi), sum_kurt, mean_global)
-    !end do
-
-    !call MPI_REDUCE(sum_var, sum_var_global, 1, MPI_DOUBLE_PRECISION,&
-    !                MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-    !!call MPI_REDUCE(sum_skew, sum_skew_global, 1, MPI_DOUBLE_PRECISION,&
-    !!                MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-    !call MPI_REDUCE(sum_kurt, sum_kurt_global, 1, MPI_DOUBLE_PRECISION,&
-    !                MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-
-    !var_global=sum_var_global/(real(max_lp))
-    !zeta_var(frame)=var_global
-    !!zeta_skew(frame)=sum_skew_global/(real(max_lp)*var_global**(3./2.))
-    !zeta_kurt(frame)=sum_kurt_global/(real(max_lp)*var_global**(4./2.))
-
     if(frame == histo_frame)then
         mode="zeta"
         call histogram1D(zeta, mode)
@@ -159,35 +128,25 @@ subroutine growth_rates(frame)
     !===================compute the surface stretching rate xi===================
     do lpi = 1, proc_particles!loop over all particles per processor
         xi(lpi) = (log(a_length_local(lpi,2)) - log(a_length_local(lpi,1)))/dt 
-        call mean(lpi, xi(lpi), sum_mean)
      end do
 
-    call MPI_REDUCE(sum_mean, sum_mean_global, 1, MPI_DOUBLE_PRECISION,&
-                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
+    !===================Gather all xis for running stats===================
+    call MPI_GATHER(xi(:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                    xi_global(:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                    root_process, MPI_COMM_WORLD, ierr)
 
-    mean_global=sum_mean_global/(real(max_lp))
-    xi_mean(frame)=mean_global
+    if (proc_id .eq. root_process) then 
+        delta=0; M1=0; M2=0; M3=0; M4=0
 
-    call MPI_BCAST(mean_global, 1, MPI_DOUBLE_PRECISION,&
-                root_process, MPI_COMM_WORLD, ierr)
+        do lpi = 1, max_lp
+            call running_stats(lpi, xi_global(lpi), delta, M1, M2, M3, M4)
+        end do
 
-    do lpi = 1, proc_particles
-        call var( lpi, xi(lpi), sum_var, mean_global)
-        call skew(lpi, xi(lpi), sum_skew, mean_global)
-        call kurt(lpi, xi(lpi), sum_kurt, mean_global)
-    end do
-
-    call MPI_REDUCE(sum_var, sum_var_global, 1, MPI_DOUBLE_PRECISION,&
-                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-    call MPI_REDUCE(sum_skew, sum_skew_global, 1, MPI_DOUBLE_PRECISION,&
-                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-    call MPI_REDUCE(sum_kurt, sum_kurt_global, 1, MPI_DOUBLE_PRECISION,&
-                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
-
-    var_global=sum_var_global/(real(max_lp-1))
-    xi_var(frame)=var_global
-    xi_skew(frame)=sum_skew_global/(real(max_lp)*var_global**(3./2.))
-    xi_kurt(frame)=sum_kurt_global/(real(max_lp)*var_global**(4./2.))
+        xi_mean(frame)= M1
+        xi_var(frame) = M2/max_lp
+        xi_skew(frame)= sqrt(real(max_lp))*M3/M2**3/2     
+        xi_kurt(frame)= max_lp*M4/M2**2 
+    end if
 
     if(frame == histo_frame)then
         mode="xi"
@@ -229,8 +188,9 @@ subroutine growth_rates(frame)
     end if
 
     if (proc_id .eq. root_process) then 
-        deallocate(zeta_global)
+        deallocate(zeta_global, xi_global)
     end if
+    
 end subroutine growth_rates
 
 subroutine mean(i, x, sum_mean)
@@ -262,40 +222,6 @@ subroutine var(i, x, sum_var, mean)
     sum_var=sum_var + (x - mean)**2
 
 end subroutine var
-
-subroutine skew(i, x, sum_skew, mean)
-    use mpi
-    use global
-    implicit none
-
-    integer, intent(in)     :: i
-    real*8, intent(inout)   :: sum_skew
-    real*8, intent(in)      :: x, mean
-    real*8                  :: tmp
-    real*8, save            :: isum
-
-    if(i==1) sum_skew=0
-
-    sum_skew=sum_skew + (x - mean)**3
-
-end subroutine skew
-
-subroutine kurt(i, x, sum_kurt, mean)
-    use mpi
-    use global
-    implicit none
-
-    integer, intent(in)     :: i
-    real*8, intent(inout)   :: sum_kurt
-    real*8, intent(in)      :: x, mean
-    real*8                  :: tmp
-    real*8, save            :: isum
-
-    if(i==1) sum_kurt=0
-
-    sum_kurt=sum_kurt + (x - mean)**4
-
-end subroutine kurt
 
 !----------------------------------------------------------------------------------------
 ! subroutine: computes statistical moments I-IV in one pass 
