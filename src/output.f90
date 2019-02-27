@@ -41,7 +41,7 @@ subroutine output_time_averages
     use global
     implicit none
     integer :: t_pdf
-    real*8 :: zeta_tave, xi_tave, zeta_var_tave, xi_var_tave
+    real*8, dimension(4) :: zeta_tave, zeta_tvar, xi_tave, xi_tvar !index is statistical moment
     real*8, dimension(5) :: gamma_l_tave, gamma_a_tave, gamma_l_var_tave, gamma_a_var_tave
     real*8 :: theta_tave, theta_var_tave, phi_tave, phi_var_tave  
     real*8 :: time_average, time_variance
@@ -50,11 +50,23 @@ subroutine output_time_averages
     character(1) :: creturn
 
     if (proc_id .eq. root_process) then 
-        zeta_tave = time_average(zeta_mean(:))
-        zeta_var_tave = time_variance(zeta_mean(:))
+        zeta_tave(1) = time_average(zeta_mean(:))
+        zeta_tvar(1) = time_variance(zeta_mean(:))
+        zeta_tave(2) = time_average(zeta_var(:))
+        zeta_tvar(2) = time_variance(zeta_var(:))
+        zeta_tave(3) = time_average(zeta_skew(:))
+        zeta_tvar(3) = time_variance(zeta_skew(:))
+        zeta_tave(4) = time_average(zeta_kurt(:))
+        zeta_tvar(4) = time_variance(zeta_kurt(:))
 
-        xi_tave = time_average(xi_mean(:))
-        xi_var_tave = time_variance(xi_mean(:))
+        xi_tave(1) = time_average(xi_mean(:))
+        xi_tvar(1) = time_variance(xi_mean(:))
+        xi_tave(2) = time_average(xi_var(:))
+        xi_tvar(2) = time_variance(xi_var(:))
+        xi_tave(3) = time_average(xi_skew(:))
+        xi_tvar(3) = time_variance(xi_skew(:))
+        xi_tave(4) = time_average(xi_kurt(:))
+        xi_tvar(4) = time_variance(xi_kurt(:))
 
         buffer(:) =  eval_mean(1,:)
         eval_tave(1) = time_average(buffer(:))
@@ -98,17 +110,25 @@ subroutine output_time_averages
         10 format(A3,A1,I8.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
         open(unit=102, file=results_table, action='write', form='formatted')
             write(102,10) id, "&", max_lp, "&", (average_start_frame-start_frame)*dt, "&",&
-                (max_frame-start_frame)*dt, "&", zeta_tave, "&", sqrt(zeta_var_tave), "&",&
-                xi_tave, "&", sqrt(xi_var_tave), "\\"
+                (max_frame-start_frame)*dt, "&", zeta_tave(1), "&", sqrt(zeta_tave(2)), "&",&
+                xi_tave(1), "&", sqrt(xi_tave(2)), "\\"
         close(102)
 
         t_pdf=int(start_frame+(max_frame-start_frame)/2)
 
-        11 format(A3,A1,F10.3,2(A1,F10.3,A1,ES10.3E1,A1,ES10.3E1,A1,F10.3),A2)
-        open(unit=102, file=pdf_table, action='write', form='formatted')
-            write(102,11) id, "&",real(t_pdf*dt), "&",zeta_mean(t_pdf) , "&", zeta_var(t_pdf), "&",&
-                zeta_skew(t_pdf), "&", zeta_kurt(t_pdf), "&", xi_mean(t_pdf), "&",&
-                xi_var(t_pdf), "&", xi_skew(t_pdf), "&", zeta_kurt(t_pdf),"\\"
+        11 format(A3,A1,F10.3,A1,ES10.3E2,3(A1,ES10.3E2,A1,ES10.3E2),A2)
+        open(unit=102, file=zeta_pdf_table, action='write', form='formatted')
+            write(102,11) id, "&",zeta_tave(1), "&", zeta_tvar(1), "&",&
+                                  zeta_tave(2), "&", zeta_tvar(2), "&",&
+                                  zeta_tave(3), "&", zeta_tvar(3), "&",&
+                                  zeta_tave(4), "&", zeta_tvar(4), "\\"
+        close(102)
+
+        open(unit=102, file=xi_pdf_table, action='write', form='formatted')
+            write(102,11) id, "&",xi_tave(1), "&", xi_tvar(1), "&",&
+                                  xi_tave(2), "&", xi_tvar(2), "&",&
+                                  xi_tave(3), "&", xi_tvar(3), "&",&
+                                  xi_tave(4), "&", xi_tvar(4), "\\"
         close(102)
 
         20 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)

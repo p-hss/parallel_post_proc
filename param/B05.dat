@@ -3,7 +3,7 @@
 B05     !id                 -   simulation ID
 0       !mhd                -   enable magnetic field statistics
 500     !start_frame        -   start frame of the MHDT Position* files
-900     !max_frame          -   end frame
+600     !max_frame          -   end frame
 10      !corr_start_time    -   start time for autocovariance measurement
 20      !corr_end_ti5e      -   end time
 10      !average_start_time -   start time for the time averages

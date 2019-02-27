@@ -61,7 +61,8 @@ module global
                                                corr_file, mean_length_file,&
                                                mhd_line_evo_file
     character*100                            :: results_table, line_angle_results_table,&
-                                               surf_angle_results_table, eval_results_table, pos_file, pdf_table
+                                               surf_angle_results_table, eval_results_table, pos_file,&
+                                               zeta_pdf_table, xi_pdf_table
 
     integer, parameter                      :: verbose = 0
 end module global
@@ -183,7 +184,8 @@ subroutine initialize
     end if
 
     write(results_table, '(A, "tables/tab_results_",A,".txt")')outputdir, id 
-    write(pdf_table, '(A, "tables/tab_results_pdf_",A,".txt")')outputdir, id 
+    write(zeta_pdf_table, '(A, "tables/tab_zeta_results_pdf_",A,".txt")')outputdir, id 
+    write(xi_pdf_table, '(A, "tables/tab_xi_results_pdf_",A,".txt")')outputdir, id 
     write(line_angle_results_table, '(A, "tables/tab_results_angle_line_",A,".txt")')outputdir, id 
     write(surf_angle_results_table, '(A, "tables/tab_results_angle_surf_",A,".txt")')outputdir, id 
     write(eval_results_table, '(A, "tables/tab_results_eval_",A,".txt")')outputdir, id 

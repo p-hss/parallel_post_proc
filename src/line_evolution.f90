@@ -246,5 +246,3 @@ subroutine running_stats(i, xi, delta, M1, M2, M3, M4)
     M2 = M2 + delta**2*(n-1)/n
 
 end subroutine running_stats
-
-^
