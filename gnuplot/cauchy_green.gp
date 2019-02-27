@@ -1,55 +1,46 @@
 reset
-
-set title "Cauchy-Green tensor"
-
 set terminal epslatex color size 6,4 
-
+set loadpath '../../../.config'
+load 'spectral.pal'
+set key below
+set zeroaxis
 set xrange[0:16]
 set yrange[:]
-
-set loadpath '../../../.config'
-load 'blues.pal'
-
 set xlabel '$t/\tau_{\eta}$'
 set ylabel '$\langle \ln(w_1) \rangle, \quad  \langle \ln(w_2) \rangle, \quad \
 \langle \ln(w_3) \rangle$'
 
-set key left bottom
-set zeroaxis
+#====================================================
 
-mhd = 0 
+mhd=1 
+sim="R01 R02 R05 R07 R08"
+
+files_1 = "../data/sim_"
+files_2 = "/cg_"
+files_3 = ".dat"
 
 if(mhd == 0){
-
-    load 'blues.pal'
-    sim = "B05"
-    dir = "../data/sim_"
-    set loadpath dir.sim
-    name = "/cg_"
-    file = ".dat"
-    file1 = name.sim.file
-
     set output "figures/hd_cg.tex"
+    plot for [i=1:words(sim)]\
+        files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
+        title word(sim,i).': $\langle \ln(w_1) \rangle$'  ls i+9,\
+    for [i=1:words(sim)]\
+            files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:3 w l \
+            title word(sim,i).': $\langle \ln(w_2) \rangle$'  ls i+19,\
+    for [i=1:words(sim)]\
+            files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:4 w l \
+            title word(sim,i).': $\langle \ln(w_3) \rangle$'  ls i+29,\
 
-    plot file1 u 1:2 w l title 'B5: $\langle \ln(w_1) \rangle$' ls 18,\
-        file1 u 1:3 w l  title 'B5: $\langle \ln(w_2) \rangle$' ls 28,\
-        file1 u 1:4 w l  title 'B5: $\langle \ln(w_3) \rangle$' ls 38,\
 }
-
 if(mhd == 1){
-
-    load 'reds.pal'
-    sim = "m02"
-    dir = "../data/sim_"
-    set loadpath dir.sim
-    name = "/cg_"
-    file = ".dat"
-    file1 = name.sim.file
-
     set output "figures/mhd_cg.tex"
-
-    plot file1 u 1:2 w l title 'M2: $\langle \ln(w_1) \rangle$' ls 18,\
-        file1 u 1:3 w l  title 'M2: $\langle \ln(w_2) \rangle$' ls 28,\
-        file1 u 1:4 w l  title 'M2: $\langle \ln(w_3) \rangle$' ls 38,\
+    plot for [i=1:words(sim)]\
+        files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
+        title word(sim,i).': $\langle \ln(w_1) \rangle$'  ls i+9,\
+    for [i=1:words(sim)]\
+            files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:3 w l \
+            title word(sim,i).': $\langle \ln(w_2) \rangle$'  ls i+19,\
+    for [i=1:words(sim)]\
+            files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:4 w l \
+            title word(sim,i).': $\langle \ln(w_3) \rangle$'  ls i+29,\
 }
-
