@@ -1,57 +1,36 @@
 reset
 
-#set terminal epslatex color size 6,4 
-set terminal png
+set terminal epslatex color size 6,3 
 
-set xrange[0:]
-set yrange[0:0.25]
+set xrange[0:30]
+set yrange[0:0.20]
+set y2range[0.7:1]
+set ytics 0.05
+set y2tics 0.1
 
 set xlabel '$t/ \tau_{\eta}$'
-set ylabel '$\langle \zeta \rangle \qquad \textrm{var}(\zeta)$ '
+set ylabel '$\langle \zeta \rangle$ '
+set y2label '$\langle \sphericalangle(\va{l} ,\va{T}_1) \rangle $ '
+set ytics nomirror
 
-set loadpath '../../../.config'
-load 'spectral.pal'
+set loadpath '../../gnuplot_palettes/'
+load 'spectral_poster.pal'
 
 set key
+sim = "R01"
 
-mhd = 0 
+files_1 = "../data/sim_"
+files_2 = "/line_evo_"
+files_3 = ".dat"
 
-if(mhd == 0){
+f_1 = "../data/sim_"
+f_2 = "/gamma_"
+f_3 = ".dat"
 
-    load 'blues.pal'
-    dir = "../data/sim_"
-    name = "/line_evo_"
-    file = ".dat"
-    sim1 = "B05"
-    file1 = dir.sim1.name.sim1.file
-
-    set output "figures/hd_line_evo.png"
-    plot file1 u 1:2 w l title sim1.': $\langle \zeta (t) \rangle$' ls 18,\
-         file1 u 1:3 w l title sim1.': var($\zeta(t))$' ls 28,\
-    }
-
-    if(mhd == 1){
-
-        load 'reds.pal'
-        sim1 = "Q02"
-        dir = "../data/sim_"
-        name = "/line_evo_"
-        file = ".dat"
-        file1 = dir.sim1.name.sim1.file
-        sim2 = "Q10"
-        file2 = dir.sim2.name.sim2.file
-        #sim3 = "Q02"
-        #file3 = dir.sim3.name.sim3.file
-        #sim4 = "Q10"
-        #file4 = dir.sim4.name.sim4.file
-
-        set output "figures/mhd_line_evo.tex"
-        plot file1 u 1:2 w l title sim1.': $\langle \zeta (t) \rangle$' ls 18,\
-             file1 u 1:3 w l title sim1.': var($\zeta(t))$' ls 28,\
-             file2 u 1:2 w l title sim2.': $\langle \zeta (t) \rangle$' ls 17,\
-             file2 u 1:3 w l title sim2.': var($\zeta(t))$' ls 27,\
-             #file3 u 1:2 w l title sim3.': $\langle \zeta (t) \rangle$' ls 16,\
-             #file3 u 1:3 w l title sim3.': var($\zeta(t))$' ls 26,\
-             #file4 u 1:2 w l title sim4.': $\langle \zeta (t) \rangle$' ls 15,\
-             #file4 u 1:3 w l title sim4.': var($\zeta(t))$' ls 25
-}
+set output "figures/mhd_line_evo.tex"
+plot for [i=1:words(sim)]\
+     files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l axis x1y1 \
+     title '$\langle \zeta \rangle$' ls 100,\
+     for [i=1:words(sim)]\
+          f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:($2) w l \
+          title '$\langle \sphericalangle(\va{l},\va{T}_1) \rangle$' ls 200 axis x1y2

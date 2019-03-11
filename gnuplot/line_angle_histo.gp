@@ -1,26 +1,31 @@
 reset
 
-set terminal epslatex color size 6,4.8 
+set terminal epslatex color size 6,4 
 
 set xrange[:]
 set yrange[:]
 
 
-set loadpath '../../../.config'
-load 'spectral.pal'
+set loadpath '../../gnuplot_palettes/'
+load 'spectral_poster.pal'
 
 set ylabel 'Histogram'
 #set key left top 
-set key below
+set key top left
 #set key outside center right
 
 mhd=1 
-sim="R01 R02 R03 R04 R05 R06 R07 R08"
+#sim="R01 R02 R03 R04 R05 R06"
+sim="R01"
 
 time="20"
-files_1 = "../data/sim_"
-files_2 = "/angle_histo_"
-files_3 = "_tkolmo_".time.".dat"
+f_1 = "../data/sim_"
+f_2 = "/angle_histo_"
+f_3 = "_tkolmo_".time.".dat"
+
+g_1 = "../data/sim_"
+g_2 = "/mhd_angle_histo_"
+g_3 = "_tkolmo_".time.".dat"
 
 if(mhd == 0){
     set output "figures/histograms/hd_angle_histo_t".time.".tex"
@@ -41,21 +46,14 @@ if(mhd == 0){
 
 if(mhd == 1){
     set output "figures/histograms/mhd_angle_histo_t".time.".tex"
-    set xlabel '$|\cos(\Gamma(\va{T}_i,\va{l}))|$'
+    set xlabel '$|\va{T}_i \cdot \va{l}|$'
     plot for [i=1:words(sim)]\
-        files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
-        title word(sim,i).': $H(|\cos(\measuredangle(\va{T}_1,\va{l}))|)$'  ls i+9,\
-        for [i=1:words(sim)]\
-        files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:6 w l \
-        title word(sim,i).': $H(|\cos(\measuredangle(\delta \va{b},\va{l}))|)$'  ls i+19,\
+        f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:2 w l \
+        title 'H$(|\va{l} \cdot \va{T}_1|)$'  ls 100,\
+        f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:3 w l \
+        title 'H$(|(\va{l} \cdot \va{T}_2|)$'  ls 200,\
+        f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:5 w l \
+        title 'H$(|(\va{l} \cdot \va{\omega}|)$'  ls 300,\
+        g_1.word(sim,i).g_2.word(sim,i).g_3 u 1:2 w l \
+        title 'H$(|\va{l} \cdot \va{B}|)$'  ls 400,\
 }
-
-        #for [i=1:words(sim)]\
-        #files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:3 w l \
-        #title word(sim,i).': $H(|\cos(\measuredangle(\va{T}_2,\va{l}))|)$'  ls i+19,\
-        #for [i=1:words(sim)]\
-        #files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:4 w l \
-        #title word(sim,i).': $H(|\cos(\measuredangle(\va{T}_3,\va{l}))|)$'  ls i+29,\
-        #for [i=1:words(sim)]\
-        #files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:5 w l \
-        #title word(sim,i).': $H(|\cos(\measuredangle(\va{\omega},\va{l}))|)$'  ls i+39,\
