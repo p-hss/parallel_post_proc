@@ -118,17 +118,17 @@ subroutine output_time_averages
 
         11 format(A3,A1,F10.3,A1,ES10.3E2,3(A1,ES10.3E2,A1,ES10.3E2),A2)
         open(unit=102, file=zeta_pdf_table, action='write', form='formatted')
-            write(102,11) id, "&",zeta_tave(1), "&", zeta_tvar(1), "&",&
-                                  zeta_tave(2), "&", zeta_tvar(2), "&",&
-                                  zeta_tave(3), "&", zeta_tvar(3), "&",&
-                                  zeta_tave(4), "&", zeta_tvar(4), "\\"
+            write(102,11) id, "&",zeta_tave(1), "&", sqrt(zeta_tvar(1)), "&",&
+                                  zeta_tave(2), "&", sqrt(zeta_tvar(2)), "&",&
+                                  zeta_tave(3), "&", sqrt(zeta_tvar(3)), "&",&
+                                  zeta_tave(4), "&", sqrt(zeta_tvar(4)), "\\"
         close(102)
 
         open(unit=102, file=xi_pdf_table, action='write', form='formatted')
-            write(102,11) id, "&",xi_tave(1), "&", xi_tvar(1), "&",&
-                                  xi_tave(2), "&", xi_tvar(2), "&",&
-                                  xi_tave(3), "&", xi_tvar(3), "&",&
-                                  xi_tave(4), "&", xi_tvar(4), "\\"
+            write(102,11) id, "&",xi_tave(1), "&", sqrt(xi_tvar(1)), "&",&
+                                  xi_tave(2), "&", sqrt(xi_tvar(2)), "&",&
+                                  xi_tave(3), "&", sqrt(xi_tvar(3)), "&",&
+                                  xi_tave(4), "&", sqrt(xi_tvar(4)), "\\"
         close(102)
 
         20 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
