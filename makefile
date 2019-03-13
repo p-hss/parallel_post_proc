@@ -6,6 +6,20 @@ vpath %.o $(objectdir)
 vpath %.mod $(objectdir) 
 
 CFlaggs = -J$(objectdir) -O3 
+
+ifeq ($(shell hostname),gamling)
+endif
+
+ifeq ($(shell hostname),cluster-i)
+endif
+
+
+ifeq ($(shell hostname),cluster-a)
+endif
+
+ifeq ($(findstring draco,$(shell hostname)),draco)
+endif
+
 LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 FC = mpif90 
 
