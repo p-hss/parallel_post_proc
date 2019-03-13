@@ -580,6 +580,7 @@ function vector_length(vector)
 
     vector_length = sqrt(vector(1)**2 + vector(2)**2 + vector(3)**2)
 end function
+
 !----------------------------------------------------------------------------------------
 ! subroutine: sorts the eigenvectors and values in positive, middle and negative 
 !----------------------------------------------------------------------------------------

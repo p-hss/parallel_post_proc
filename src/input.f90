@@ -25,8 +25,8 @@ subroutine input
 
         io_start=1
         io_stop=0
-        index_1=0
-        index_2=iframe
+        index_1=3 
+        index_2=iframe 
 
         do index_3=0, nioproc-1
             
