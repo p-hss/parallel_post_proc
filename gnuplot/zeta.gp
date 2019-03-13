@@ -1,6 +1,6 @@
 reset
 
-set terminal epslatex color size 6,3 
+set terminal epslatex color size 6,4 
 
 set xrange[0:30]
 set yrange[0:0.20]
@@ -31,6 +31,8 @@ set output "figures/mhd_line_evo.tex"
 plot for [i=1:words(sim)]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l axis x1y1 \
      title '$\langle \zeta \rangle$' ls 100,\
+     files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:3 w l axis x1y1 \
+     title 'var$(\zeta)$' ls 200,\
      for [i=1:words(sim)]\
           f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:($2) w l \
-          title '$\langle \sphericalangle(\va{l},\va{T}_1) \rangle$' ls 200 axis x1y2
+          title '$\langle \sphericalangle(\va{l},\va{T}_1) \rangle$' ls 300 axis x1y2

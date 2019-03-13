@@ -46,14 +46,15 @@ if(mhd == 0){
 
 if(mhd == 1){
     set output "figures/histograms/mhd_angle_histo_t".time.".tex"
-    set xlabel '$|\va{T}_i \cdot \va{l}|$'
+    set xlabel '$|\va{\hat{T}}_i \cdot \va{\hat{l}}|$'
+
     plot for [i=1:words(sim)]\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:2 w l \
-        title 'H$(|\va{l} \cdot \va{T}_1|)$'  ls 100,\
+        title 'H$(|\va{\hat{l}} \cdot \va{\hat{T}}_1|)$'  ls 100,\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:3 w l \
-        title 'H$(|(\va{l} \cdot \va{T}_2|)$'  ls 200,\
+        title 'H$(|(\va{\hat{l}} \cdot \va{\hat{T}}_2|)$'  ls 200,\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:5 w l \
-        title 'H$(|(\va{l} \cdot \va{\omega}|)$'  ls 300,\
+        title 'H$(|(\va{\hat{l}} \cdot \va{\hat{\omega}}|)$'  ls 300,\
         g_1.word(sim,i).g_2.word(sim,i).g_3 u 1:2 w l \
-        title 'H$(|\va{l} \cdot \va{B}|)$'  ls 400,\
+        title 'H$(|\va{\hat{l}} \cdot \va{\hat{B}}|)$'  ls 400,\
 }
