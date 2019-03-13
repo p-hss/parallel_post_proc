@@ -5,23 +5,29 @@ vpath %.f90 $(sourcedir)
 vpath %.o $(objectdir) 
 vpath %.mod $(objectdir) 
 
-CFlaggs = -J$(objectdir) -O3 
 
 ifeq ($(shell hostname),gamling)
+CFlaggs = -J$(objectdir) -O3 
+LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
+FC = mpif90 
 endif
 
 ifeq ($(shell hostname),cluster-i)
+CFlaggs = -J$(objectdir) -O3 
+LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
+FC = mpif90 
 endif
 
 
 ifeq ($(shell hostname),cluster-a)
+CFlaggs = -J$(objectdir) -O3 
+LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
+FC = mpif90 
 endif
 
 ifeq ($(findstring draco,$(shell hostname)),draco)
+CFlaggs = -J$(objectdir) -O3 
 endif
-
-LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
-FC = mpif90 
 
 objects = main.o line_evolution.o diagnose.o input.o output.o
 
