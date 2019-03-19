@@ -1,7 +1,7 @@
 module global
     implicit none
     !dimensions 
-    integer, parameter                      :: N = 3 !number of spatial dimensions
+    integer, parameter                      :: n = 3 !number of spatial dimensions
     integer                                 :: iframe !loop indeces
     integer                                 :: max_i,max_j
     integer                                 :: max_lp 
@@ -269,7 +269,7 @@ subroutine initialize_random
     real*8 :: rand
 
     !initializing 3 random oriented, orthogonal line elements per particle 
-    call srand(seed) 
+    call srand(int(seed,4)) 
     do i=1, proc_particles
         !line element #1
         le_initial_local(i,1,1) = rand() 

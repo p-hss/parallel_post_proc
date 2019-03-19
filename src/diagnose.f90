@@ -717,7 +717,7 @@ subroutine eigen_val_vec(M, wr, vr)
     real*8, dimension(ldvr,n) :: vr !right side eigenvector 
     real*8, dimension(n) :: wr!real eigenvalues
     real*8, dimension(n) :: wi 
-    integer :: lwork = 4*n
+    integer :: lwork = 8*n
     real*8, dimension(n*4) :: work 
     character*1 :: jobvl = 'n' !compute left eigenvectors : n = no, V = yes
     character*1 :: jobvr = 'V' ! ""     right "" 
@@ -730,8 +730,8 @@ subroutine eigen_val_vec(M, wr, vr)
     vr = 0 
     wr = 0
     wi = 0
-
-    call dgeev(jobvl, jobvr, N, M, lda, wr, wi, vl, ldvl, vr, ldvr, work, lwork, info)
+    
+    call dgeev(jobvl, jobvr, n, M, lda, wr, wi, vl, ldvl, vr, ldvr, work, lwork, info)
 
     if(verbose == 61)then 
         print*, ""

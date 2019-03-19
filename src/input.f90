@@ -25,7 +25,7 @@ subroutine input
 
         io_start=1
         io_stop=0
-        index_1=3 
+        index_1=0 
         index_2=iframe 
 
         do index_3=0, nioproc-1
@@ -108,10 +108,10 @@ subroutine input
         do j=1,3
             do i=1,3
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, lp_ID_list_tmp, lp_vgr_global_unsort(:,i,j), 1, max_lp)
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, max_lp)
             end do
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, lp_ID_list_tmp, mag_field_global_unsort(:,j), 1, max_lp)
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, max_lp)
         end do
         call cpu_time(sort_t_stop(proc_id+1))
         sort_total_time(proc_id+1) = sort_total_time(proc_id+1) + sort_t_stop(proc_id+1) - sort_t_start(proc_id+1)
