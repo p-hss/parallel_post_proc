@@ -17,7 +17,7 @@ set loadpath '../../gnuplot_palettes/'
 load 'spectral_poster.pal'
 
 set key
-sim = "R01"
+sim = "Z01"
 
 files_1 = "../data/sim_"
 files_2 = "/line_evo_"
@@ -27,7 +27,7 @@ f_1 = "../data/sim_"
 f_2 = "/gamma_"
 f_3 = ".dat"
 
-set output "figures/mhd_line_evo.tex"
+set output "figures/mhd_line_evo_256.tex"
 plot for [i=1:words(sim)]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l axis x1y1 \
      title '$\langle \zeta \rangle$' ls 100,\
