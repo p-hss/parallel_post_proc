@@ -10175,3 +10175,1943 @@ correlation matrix of the fit parameters:
                 xi     d      
 xi              1.000 
 d              -0.952  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:28:14 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:28:24 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:28:56 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:29:26 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:29:44 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:30:01 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:30:20 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:30:33 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:30:42 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:30:57 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.30000]
+        #datapoints = 92
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 31.73             delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.238026
+
+initial set of free parameter values
+
+a               = 1
+sigma           = 1
+mu              = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0230436
+rel. change during last iteration : -3.6051e-06
+
+degrees of freedom    (FIT_NDF)                        : 89
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0160909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000258917
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 0.991829         +/- 0.002884     (0.2907%)
+sigma           = 0.241479         +/- 0.0008113    (0.336%)
+mu              = 0.135953         +/- 0.0008105    (0.5962%)
+
+
+correlation matrix of the fit parameters:
+
+               a      sigma  mu     
+a               1.000 
+sigma           0.578  1.000 
+mu             -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:35:48 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Tue Mar 12 13:36:04 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 30.0397           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.224826
+
+initial set of free parameter values
+
+a1              = 1
+sigma1          = 1
+mu1             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.0230273
+rel. change during last iteration : -2.95536e-07
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.017182
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000295222
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a1              = 0.991825         +/- 0.003079     (0.3105%)
+sigma1          = 0.241477         +/- 0.0008663    (0.3588%)
+mu1             = 0.135953         +/- 0.0008654    (0.6366%)
+
+
+correlation matrix of the fit parameters:
+
+               a1     sigma1 mu1    
+a1              1.000 
+sigma1          0.578  1.000 
+mu1             0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 13:36:04 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 46.0051           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.224826
+
+initial set of free parameter values
+
+a2              = 1
+sigma2          = 1
+mu2             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.233698
+rel. change during last iteration : -9.51171e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0547368
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00299612
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a2              = 0.952855         +/- 0.00815      (0.8554%)
+sigma2          = 0.166704         +/- 0.001648     (0.9884%)
+mu2             = 0.114095         +/- 0.001646     (1.443%)
+
+
+correlation matrix of the fit parameters:
+
+               a2     sigma2 mu2    
+a2              1.000 
+sigma2          0.578  1.000 
+mu2            -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:30:00 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 30.0397           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.224826
+
+initial set of free parameter values
+
+a1              = 1
+sigma1          = 1
+mu1             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.0230273
+rel. change during last iteration : -2.95536e-07
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.017182
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000295222
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a1              = 0.991825         +/- 0.003079     (0.3105%)
+sigma1          = 0.241477         +/- 0.0008663    (0.3588%)
+mu1             = 0.135953         +/- 0.0008654    (0.6366%)
+
+
+correlation matrix of the fit parameters:
+
+               a1     sigma1 mu1    
+a1              1.000 
+sigma1          0.578  1.000 
+mu1             0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:30:00 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 46.0051           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.224826
+
+initial set of free parameter values
+
+a2              = 1
+sigma2          = 1
+mu2             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.233698
+rel. change during last iteration : -9.51171e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0547368
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00299612
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a2              = 0.952855         +/- 0.00815      (0.8554%)
+sigma2          = 0.166704         +/- 0.001648     (0.9884%)
+mu2             = 0.114095         +/- 0.001646     (1.443%)
+
+
+correlation matrix of the fit parameters:
+
+               a2     sigma2 mu2    
+a2              1.000 
+sigma2          0.578  1.000 
+mu2            -0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:30:47 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 30.0397           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.224826
+
+initial set of free parameter values
+
+a1              = 1
+sigma1          = 1
+mu1             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.0230273
+rel. change during last iteration : -2.95536e-07
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.017182
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000295222
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a1              = 0.991825         +/- 0.003079     (0.3105%)
+sigma1          = 0.241477         +/- 0.0008663    (0.3588%)
+mu1             = 0.135953         +/- 0.0008654    (0.6366%)
+
+
+correlation matrix of the fit parameters:
+
+               a1     sigma1 mu1    
+a1              1.000 
+sigma1          0.578  1.000 
+mu1             0.000 -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:30:47 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 46.0051           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.327086
+rel. change during last iteration : -2.39935e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0643454
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00414032
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172858         +/- 0.001591     (0.9203%)
+mu2             = 0.114081         +/- 0.001947     (1.707%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:32:33 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 30.0397           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 0.025088
+rel. change during last iteration : -8.93575e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0178205
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000317569
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242831         +/- 0.0007336    (0.3021%)
+mu1             = 0.13591          +/- 0.0008978    (0.6606%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:32:33 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3
+        format = z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 46.0051           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.327086
+rel. change during last iteration : -2.39935e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0643454
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00414032
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172858         +/- 0.001591     (0.9203%)
+mu2             = 0.114081         +/- 0.001947     (1.707%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:33:58 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 30.0397           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 0.025088
+rel. change during last iteration : -8.93575e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0178205
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000317569
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242831         +/- 0.0007336    (0.3021%)
+mu1             = 0.13591          +/- 0.0008978    (0.6606%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:33:58 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 46.0051           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.327086
+rel. change during last iteration : -2.39935e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0643454
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00414032
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172858         +/- 0.001591     (0.9203%)
+mu2             = 0.114081         +/- 0.001947     (1.707%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:34:42 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:($2+word(zeta,1))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 35.8647           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 22 iterations the fit converged.
+final sum of squares of residuals : 1.09423
+rel. change during last iteration : -4.2249e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.11769
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.013851
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242757         +/- 0.004843     (1.995%)
+mu1             = 0.135887         +/- 0.005926     (4.361%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:34:42 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:($2+word(zeta,6))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 50.9294           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 26 iterations the fit converged.
+final sum of squares of residuals : 1.12291
+rel. change during last iteration : -8.70896e-10
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.119223
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.014214
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172843         +/- 0.002947     (1.705%)
+mu2             = 0.114081         +/- 0.003607     (3.162%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:35:05 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:($2+word(zeta,1))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 35.8647           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 22 iterations the fit converged.
+final sum of squares of residuals : 1.09423
+rel. change during last iteration : -4.2249e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.11769
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.013851
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242757         +/- 0.004843     (1.995%)
+mu1             = 0.135887         +/- 0.005926     (4.361%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:35:06 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:($2+word(zeta,6))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 50.9294           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 26 iterations the fit converged.
+final sum of squares of residuals : 1.12291
+rel. change during last iteration : -8.70896e-10
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.119223
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.014214
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172843         +/- 0.002947     (1.705%)
+mu2             = 0.114081         +/- 0.003607     (3.162%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:35:21 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:($2-word(zeta,1))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 26.3572           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 1.09839
+rel. change during last iteration : -1.28346e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.117914
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0139037
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242901         +/- 0.004856     (1.999%)
+mu1             = 0.135936         +/- 0.005943     (4.372%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:35:21 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:($2-word(zeta,6))
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 42.6943           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201635
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 1.14479
+rel. change during last iteration : -2.59248e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.120379
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.014491
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172861         +/- 0.002976     (1.722%)
+mu2             = 0.114081         +/- 0.003642     (3.193%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:36:23 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:36:23 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:37:43 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Mar 12 14:37:43 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 13:49:34 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 13:49:39 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:01:23 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:01:23 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:02:21 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:02:22 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:03:22 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:03:22 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:05:51 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 32.0075           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.201186
+
+initial set of free parameter values
+
+sigma1          = 1
+mu1             = 1
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.0250965
+rel. change during last iteration : -3.17962e-15
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0179374
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00032175
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma1          = 0.242829         +/- 0.0007384    (0.3041%)
+mu1             = 0.0209112        +/- 0.0009036    (4.321%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 13 14:05:52 2019
+
+
+FIT:    data read from files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2
+        format = x:z
+	y range restricted to [-1.00000 : 1.00000]
+        #datapoints = 80
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 47.6791           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.200445
+
+initial set of free parameter values
+
+sigma2          = 1
+mu2             = 1
+
+After 11 iterations the fit converged.
+final sum of squares of residuals : 0.327103
+rel. change during last iteration : -7.02459e-06
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0647582
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00419363
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+sigma2          = 0.172849         +/- 0.001601     (0.9262%)
+mu2             = 0.0142807        +/- 0.001959     (13.72%)
+
+
+correlation matrix of the fit parameters:
+
+               sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 

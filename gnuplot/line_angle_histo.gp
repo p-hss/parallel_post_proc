@@ -9,9 +9,9 @@ set yrange[:]
 set loadpath '../../gnuplot_palettes/'
 load 'spectral_poster.pal'
 
-set ylabel 'Histogram'
+set ylabel 'Probability density function'
 #set key left top 
-set key top left
+set key top left Left reverse
 #set key outside center right
 
 mhd=1 
@@ -26,6 +26,7 @@ f_3 = "_tkolmo_".time.".dat"
 g_1 = "../data/sim_"
 g_2 = "/mhd_angle_histo_"
 g_3 = "_tkolmo_".time.".dat"
+
 
 if(mhd == 0){
     set output "figures/histograms/hd_angle_histo_t".time.".tex"
@@ -46,14 +47,16 @@ if(mhd == 0){
 
 if(mhd == 1){
     set output "figures/histograms/mhd_angle_histo_t".time.".tex"
-    set xlabel '$|\va{T}_i \cdot \va{l}|$'
+    #set xlabel '$|\va{\hat{T}}_i \cdot \va{\hat{l}}|$'
+    set xlabel '$|\va{\hat{l}} \cdot \va{\hat{x}}| \qquad \va{\hat{x}} = \va{\hat{T}}_i, \, \va{\hat{\omega}}, \, \va{\hat{b}} $'
+
     plot for [i=1:words(sim)]\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:2 w l \
-        title 'H$(|\va{l} \cdot \va{T}_1|)$'  ls 100,\
+        title '$|\va{\hat{l}} \cdot \va{\hat{T}}_1|$'  ls 100,\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:3 w l \
-        title 'H$(|(\va{l} \cdot \va{T}_2|)$'  ls 200,\
+        title '$|\va{\hat{l}} \cdot \va{\hat{T}}_2|$'  ls 200,\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:5 w l \
-        title 'H$(|(\va{l} \cdot \va{\omega}|)$'  ls 300,\
+        title '$|\va{\hat{l}} \cdot \va{\hat{\omega}}|$'  ls 300,\
         g_1.word(sim,i).g_2.word(sim,i).g_3 u 1:2 w l \
-        title 'H$(|\va{l} \cdot \va{B}|)$'  ls 400,\
+        title '$|\va{\hat{l}} \cdot \va{\hat{b}}|$'  ls 400,\
 }

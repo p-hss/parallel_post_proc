@@ -5,9 +5,10 @@ vpath %.f90 $(sourcedir)
 vpath %.o $(objectdir) 
 vpath %.mod $(objectdir) 
 
-CFlaggs = -J$(objectdir) -O3 
-LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
+#FC = mpif90 -f90=gfortran
 FC = mpif90 
+CFlaggs = -J$(objectdir) 
+LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 
 objects = main.o line_evolution.o diagnose.o input.o output.o
 

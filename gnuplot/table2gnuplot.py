@@ -1,8 +1,11 @@
 import math
 def read_data(i,j,k):
 
-    sim=["R01", "R02", "R03", "R04",
-         "R05", "R06", "R07", "R08", ]
+    #sim=["R01", "R02", "R03", "R04",
+    #     "R05", "R06", "R07", "R08", ]
+    sim=["Z01", "Z02", "Z03", "Z04",
+         "Z05", "Z06"]
+
 
     files_1=["../data/sim_",
              "/home/gamling/p.hess/Masterarbeit/Thesis"]
@@ -21,8 +24,8 @@ def read_data(i,j,k):
     return data
 
 
-file_out="../data/line_xhel_scaling.dat"
-start=7
+file_out="../data/line_xhel_scaling_256.dat"
+start=5
 stop=0
 
 for sims in range(start,stop,-1):
