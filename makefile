@@ -25,14 +25,20 @@ FC = mpif90
 endif
 
 ifeq ($(findstring draco,$(shell hostname)),draco)
-CFlaggs = -J$(objectdir) -O3 
-LIB = ${MKL_HOME}/lib/intel64/libmkl_blas95_ilp64.a ${MKL_HOME}/lib/intel64/libmkl_lapack95_ilp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_ilp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
+CFlaggs = -J$(objectdir) -O3  -fdefault-integer-8 -m64 -I${MKLROOT}/include
+LIB = ${MKL_HOME}/lib/intel64/libmkl_blas95_lp64.a ${MKL_HOME}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_lp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
 FC = mpif90 -f90=gfortran
 endif
 
+#ifeq ($(findstring draco,$(shell hostname)),draco)
+#CFlaggs = -J$(objectdir) -O3 
+#LIB = ${MKL_HOME}/lib/intel64/libmkl_blas95_ilp64.a ${MKL_HOME}/lib/intel64/libmkl_lapack95_ilp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_ilp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
+#FC = mpif90 -f90=gfortran
+#endif
+
 objects = main.o line_evolution.o diagnose.o input.o output.o
 
-run: $(patsubst %.o,$(objectdir)%.o,global.o $(objects))
+run: $(patsubst %.o, $(objectdir)%.o, global.o $(objects))
 	$(FC) $(CFlaggs) -o $@ $^ $(LIB)
 
 global.mod: $(sourcedir)global.f90  
@@ -40,9 +46,6 @@ global.mod: $(sourcedir)global.f90
 
 $(objectdir)global.o: 
 	$(FC) $(CFlaggs) -c $(sourcedir)global.f90 -o $(objectdir)global.o
-
-#%.o: $(objectdir)global.mod %.f90
-#	$(FC) $(CFlaggs) -c $(sourcedir)$(patsubst %.o,%.f90, $(notdir $@)) -o $@
 
 $(objectdir)main.o: $(objectdir)global.mod 
 	$(FC) $(CFlaggs) -c $(sourcedir)main.f90 -o $(objectdir)main.o
