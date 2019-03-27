@@ -116,7 +116,7 @@ subroutine output_time_averages
 
         t_pdf=int(start_frame+(max_frame-start_frame)/2)
 
-        11 format(A3,A1,F10.3,A1,ES10.3E2,3(A1,ES10.3E2,A1,ES10.3E2),A2)
+        11 format(A3,A1,F10.3,A1,ES10.3E1,3(A1,ES10.3E1,A1,ES10.3E1),A2)
         open(unit=102, file=zeta_pdf_table, action='write', form='formatted')
             write(102,11) id, "&",zeta_tave(1), "&", sqrt(zeta_tvar(1)), "&",&
                                   zeta_tave(2), "&", sqrt(zeta_tvar(2)), "&",&

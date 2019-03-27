@@ -2,6 +2,7 @@
 8       !nioproc            -   number of output files per io process
 B05     !id                 -   simulation ID
 0       !mhd                -   enable magnetic field statistics
+0       !run 
 500     !start_frame        -   start frame of the MHDT Position* files
 600     !max_frame          -   end frame
 10      !corr_start_time    -   start time for autocovariance measurement

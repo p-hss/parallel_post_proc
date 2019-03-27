@@ -1,6 +1,6 @@
 #!/bin/bash --login
 #$ -cwd
-#$ -N pproc_Y01
+#$ -N pproc_M00
 #$ -o output.txt
 #$ -j y 
 #$ -l h_rt=12:00:00
@@ -11,4 +11,4 @@
 echo $(date +"%Y-%m-%d_%r")
 pwd
 
-./run < param/Y01.dat
+./run < param/M00.dat
