@@ -6,12 +6,12 @@ set xrange[:]
 set yrange[:]
 
 set loadpath '../../gnuplot_palettes/'
-load 'spectral.pal'
+load 'spectral_poster.pal'
 
-set xlabel '$\sigma_C$'
+set xlabel '$\langle \sigma_c \rangle$'
 #set ylabel '$\zeta/\zeta_{\textrm{min}}$, $\sphericalangle(\va{l}, \va{T_1})/\sphericalangle(\va{l}, \va{T_1})_{\textrm{max}}$, $\sphericalangle(\va{l}, \va{T_1})/\sphericalangle(\va{l}, \va{b})_{\textrm{max}}$'
 set ylabel ''
-set key left top 
+set key left top Left reverse
 
 set arrow from graph 0, first 1 to graph 1, first 1 nohead lc "black"
 

@@ -110,8 +110,8 @@ subroutine output_time_averages
         10 format(A3,A1,I8.0,A1,F10.3,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
         open(unit=102, file=results_table, action='write', form='formatted')
             write(102,10) id, "&", max_lp, "&", (average_start_frame-start_frame)*dt, "&",&
-                (max_frame-start_frame)*dt, "&", zeta_tave(1), "&", sqrt(zeta_tave(2)), "&",&
-                xi_tave(1), "&", sqrt(xi_tave(2)), "\\"
+                (max_frame-start_frame)*dt, "&", zeta_tave(1), "&", sqrt(zeta_tvar(1)), "&",&
+                xi_tave(1), "&", sqrt(xi_tvar(1)), "\\"
         close(102)
 
         t_pdf=int(start_frame+(max_frame-start_frame)/2)
