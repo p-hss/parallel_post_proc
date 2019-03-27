@@ -25,7 +25,7 @@ subroutine input
 
         io_start=1
         io_stop=0
-        index_1=0 
+        index_1=run
         index_2=iframe 
 
         do index_3=0, nioproc-1
@@ -110,8 +110,10 @@ subroutine input
                 lp_ID_list_tmp=lp_ID_list
                 call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, max_lp)
             end do
+            if(mhd == 1)then
                 lp_ID_list_tmp=lp_ID_list
                 call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, max_lp)
+	        end if
         end do
         call cpu_time(sort_t_stop(proc_id+1))
         sort_total_time(proc_id+1) = sort_total_time(proc_id+1) + sort_t_stop(proc_id+1) - sort_t_start(proc_id+1)
@@ -141,11 +143,13 @@ subroutine input
         lp_vgr_local(:,1,:,:) = lp_vgr_local(:,2,:,:)
     end if
 
-    do i=1,3
-        call MPI_SCATTER(mag_field_global_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                         mag_field_local(:,2,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
-                         root_process, MPI_COMM_WORLD, ierr)
-    end do
+    if(mhd == 1)then
+        do i=1,3
+            call MPI_SCATTER(mag_field_global_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                     mag_field_local(:,2,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                     root_process, MPI_COMM_WORLD, ierr)
+        end do
+    end if
 
     call cpu_time(comm_t_stop(proc_id+1))
     comm_total_time(proc_id+1) = comm_total_time(proc_id+1) + comm_t_stop(proc_id+1) - comm_t_start(proc_id+1)
@@ -161,7 +165,7 @@ subroutine input
     end if
 
     deallocate(lp_ID_list, lp_pos_unsort, lp_vel_unsort, lp_vgr_global_unsort, &
-                mag_field_global_unsort, lp_ID_list_tmp)
+               mag_field_global_unsort, lp_ID_list_tmp)
 
 end subroutine input
 

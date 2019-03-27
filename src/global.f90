@@ -7,7 +7,7 @@ module global
     integer                                 :: max_lp 
     integer                                 :: nioproc !number of output files per io process
     character*3                             :: id 
-    integer                                 :: mhd
+    integer                                 :: mhd, run
     real*8, parameter                       :: pi = 3.14159265359
     !time
     integer                                 :: start_frame  
@@ -81,6 +81,7 @@ subroutine  input_parameters
         read(*, *) nioproc 
         read(*, *) id 
         read(*, *) mhd 
+        read(*, *) run
         read(*, *) start_frame 
         read(*, *) max_frame
         read(*, *) corr_start_time
@@ -99,6 +100,7 @@ subroutine  input_parameters
         print*, "========================================================"
         write(*,10) "simulation ID: ", id 
         write(*,30) "MHD: ",  mhd 
+        write(*,30) "Run: ",  run
         print*, "--------------------------------------------------------"
         write(*,20) "Kolmogorov time scale: ", t_kolmo
         write(*,30) "number of lagrange particles: ", max_lp 

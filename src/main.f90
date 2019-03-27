@@ -56,7 +56,7 @@ program main
             B_local(lpi,1,:,:) = B_local(lpi,5,:,:)
             A_local(lpi,1,:) = A_local(lpi,2,:)
             A_length_local(lpi,1) = A_length_local(lpi,2)
-            mag_field_local(lpi,1,:) = mag_field_local(lpi,2,:)
+            if(mhd == 1) mag_field_local(lpi,1,:) = mag_field_local(lpi,2,:)
             do i=1,3
                 le_length_local(lpi,1,i) = le_length_local(lpi,2,i)
                 le_local(lpi,1,:,i) = le_local(lpi,2,:,i)
