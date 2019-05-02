@@ -95,7 +95,7 @@ subroutine histogram1D(variable, mode)
     use mpi
     implicit none
     integer :: lpi, frame, i,j
-    integer :: max_val, count_excess
+    integer :: max_val, count_excess, count_excess_global
     integer :: bin, number_bin
     integer, dimension(2) :: max_val_w 
     real*8, dimension(proc_particles), intent(in) :: variable
@@ -114,7 +114,7 @@ subroutine histogram1D(variable, mode)
     do lpi=1, proc_particles
         if(variable(lpi) < max_val)then
             bin = ceiling((variable(lpi) + max_val)/bin_size)
-            histo(bin) =  histo(bin)  + 1
+            histo(bin) =  histo(bin) + 1
         else
             count_excess = count_excess + 1
         end if
@@ -123,7 +123,10 @@ subroutine histogram1D(variable, mode)
     call MPI_REDUCE(histo(:), histo_global(:), number_bin, MPI_DOUBLE_PRECISION,&
                     MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
-    histo_global(:) = histo_global(:)/((max_lp-real(count_excess))*bin_size)
+    call MPI_REDUCE(count_excess, count_excess_global, 1, MPI_INTEGER,&
+                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
+
+    histo_global(:) = histo_global(:)/((max_lp-real(count_excess_global))*bin_size)
 
     if (proc_id .eq. root_process) then 
         if(Trim(mode) == "zeta")then
@@ -150,7 +153,7 @@ subroutine histogram2D(variable1, variable2, mode)
     use mpi
     implicit none
     integer :: lpi,i,j
-    integer :: count_excess
+    integer :: count_excess, count_excess_global
     integer :: bin, number_bin
     integer, dimension(2) :: bin_w, number_bin_w 
     integer, dimension(2) :: max_val_w 
@@ -182,12 +185,15 @@ subroutine histogram2D(variable1, variable2, mode)
         end if
     end do
 
+    call MPI_REDUCE(count_excess, count_excess_global, 1, MPI_INTEGER,&
+                    MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
+
     do i=1,number_bin_w(2)
         call MPI_REDUCE(histo(:,i), histo_global(:,i), number_bin_w(1), MPI_DOUBLE_PRECISION,&
                         MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
     end do
 
-    histo_global(:,:)=histo_global(:,:)/((max_lp-real(count_excess))*bin_size_w)
+    histo_global(:,:)=histo_global(:,:)/((max_lp-real(count_excess_global))*bin_size_w)
 
     if (proc_id .eq. root_process) then 
         if(Trim(mode) == "cauchy")then
@@ -520,14 +526,12 @@ subroutine angle_histograms(frame)
         if(mhd == 1)then
 
             do i=8, 12
-
                 call MPI_REDUCE(angle_histo(:,i), angle_histo_global(:,i), number_bin, MPI_DOUBLE_PRECISION,&
                                 MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
                 if (proc_id .eq. root_process) then 
                     angle_histo_global(:,i) = angle_histo_global(:,i)/(max_lp*bin_size_angle)
                 end if
-
             end do
 
         end if
