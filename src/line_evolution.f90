@@ -99,7 +99,6 @@ subroutine growth_rates(frame)
         !zeta(lpi) = dot_product(line_element_dir(:), le_local(lpi,2,:,1)/le_length_local(lpi,2,1))
         !============method #2===================
         zeta(lpi) = (log(le_length_local(lpi,2,1)) - log(le_length_local(lpi,1,1)))/dt 
-        !call mean(lpi, zeta(lpi), sum_mean)
     end do
 
     !===================Gather all zetas for running stats===================
