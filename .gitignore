@@ -10,6 +10,7 @@ core*
 .vscode
 output/*
 !output/.gitkeep
+output.txt
 err/*
 !err/.gitkeep
 data/*
