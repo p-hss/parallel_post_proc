@@ -108,11 +108,11 @@ subroutine input
         do j=1,3
             do i=1,3
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, int(max_lp,4))
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, max_lp)
             end do
             if(mhd == 1)then
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, int(max_lp,4))
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, max_lp)
 	        end if
         end do
         call cpu_time(sort_t_stop(proc_id+1))
