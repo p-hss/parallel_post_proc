@@ -5,18 +5,16 @@ set terminal epslatex color size 6,4
 set xrange[:]
 set yrange[:]
 
-
 set loadpath '../../gnuplot_palettes/'
 load 'spectral_poster.pal'
 
 set ylabel 'Probability density function'
 #set key left top 
 set key top left Left reverse
-#set key outside center right
 
 mhd=1 
 #sim="R01 R02 R03 R04 R05 R06"
-sim="R01"
+sim="Z46"
 
 time="20"
 f_1 = "../data/sim_"
@@ -46,9 +44,8 @@ if(mhd == 0){
 }
 
 if(mhd == 1){
-    set output "figures/histograms/mhd_angle_histo_t".time.".tex"
-    #set xlabel '$|\va{\hat{T}}_i \cdot \va{\hat{l}}|$'
-    set xlabel '$|\va{\hat{l}} \cdot \va{\hat{x}}| \qquad \va{\hat{x}} = \va{\hat{T}}_i, \, \va{\hat{\omega}}, \, \va{\hat{b}} $'
+    set output "figures/histograms/mhd_Z4_angle_histo_t".time.".tex"
+    set xlabel 'angle'
 
     plot for [i=1:words(sim)]\
         f_1.word(sim,i).f_2.word(sim,i).f_3 u 1:2 w l \

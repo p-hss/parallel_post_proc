@@ -1,11 +1,10 @@
 import math
 def read_data(i,j,k):
 
-    #sim=["R01", "R02", "R03", "R04",
-    #     "R05", "R06", "R07", "R08", ]
-    sim=["Z01", "Z02", "Z03", "Z04",
-         "Z05", "Z06"]
-
+    #sim=["Z01", "Z02", "Z03", "Z04",
+    #     "Z05", "Z06"]
+    sim=["Z41", "Z42", "Z43", "Z44",
+         "Z45", "Z46"]
 
     files_1=["../data/sim_",
              "/home/gamling/p.hess/Masterarbeit/Thesis"]
@@ -26,12 +25,15 @@ def read_data(i,j,k):
 
 file_out="../data/line_xhel_scaling_256.dat"
 start=5
-stop=0
+stop=-1
 
 for sims in range(start,stop,-1):
 
     data=read_data(sims,2,1)
-    sigma=math.cos(float(data[61:66]))
+
+
+    #sigma=math.cos(float(data[61:66]))
+    sigma=float(data[61:66])
 
     data=read_data(sims,0,0)
     zeta=data[40:45]
@@ -54,6 +56,9 @@ for sims in range(start,stop,-1):
     output=str(sigma)+" "+str(float(zeta)/max_zeta)+" "+zeta_error+" "+ \
                           str(float(angle_max_strain)/max_strain_angle)+" "+angle_max_strain_error+" "+ \
                           str(float(angle_b)/max_b_angle)+" "+angle_b_error+" \n"
+    #output=str(sigma)+" "+str(float(zeta))+" "+zeta_error+" "+ \
+    #                      str(float(angle_max_strain))+" "+angle_max_strain_error+" "+ \
+    #                      str(float(angle_b))+" "+angle_b_error+" \n"
     
     if sims == start:
         f = open(file_out, "w")
@@ -64,3 +69,4 @@ for sims in range(start,stop,-1):
         f.write(output)
 
     print(output)
+    print("")

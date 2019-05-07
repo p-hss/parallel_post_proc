@@ -120,8 +120,6 @@ subroutine input
 
     end if
 
-
-
     if (proc_id .eq. root_process)then
         call cpu_time(io_t_stop)
         io_total_time = io_total_time + io_t_stop - io_t_start
