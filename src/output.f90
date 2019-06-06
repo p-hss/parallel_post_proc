@@ -140,6 +140,14 @@ subroutine output_time_averages
                 "&", phi_tave,     "&", sqrt(phi_var_tave), "\\"
         close(102)
 
+        21 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+        open(unit=102, file=eval_512_results_table, action='write', form='formatted')
+            write(102,21) id, "&", eval_tave(1), "&", sqrt(eval_var_tave(1)),&
+                "&", eval_tave(2), "&", sqrt(eval_var_tave(2)),&
+                "&", eval_tave(3), "&", sqrt(eval_var_tave(3)),"\\"
+        close(102)
+       
+
         if(mhd == 1)then
             30 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
             open(unit=102, file=line_angle_results_table, action='write', form='formatted')

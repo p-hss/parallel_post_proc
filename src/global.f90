@@ -62,7 +62,7 @@ module global
                                                mhd_line_evo_file
     character*100                            :: results_table, line_angle_results_table,&
                                                surf_angle_results_table, eval_results_table, pos_file,&
-                                               zeta_pdf_table, xi_pdf_table
+                                               zeta_pdf_table, xi_pdf_table, eval_512_results_table
 
     integer, parameter                      :: verbose = 0
 end module global
@@ -191,6 +191,7 @@ subroutine initialize
     write(line_angle_results_table, '(A, "tables/tab_results_angle_line_",A,".txt")')outputdir, id 
     write(surf_angle_results_table, '(A, "tables/tab_results_angle_surf_",A,".txt")')outputdir, id 
     write(eval_results_table, '(A, "tables/tab_results_eval_",A,".txt")')outputdir, id 
+    write(eval_512_results_table, '(A, "tables/tab_results_512_eval_",A,".txt")')outputdir, id 
     write(vel_file, '(A, "mean_vel_",A,".dat")')outputdir, id 
 
     !initial values
