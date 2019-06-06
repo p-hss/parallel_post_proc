@@ -110,11 +110,16 @@ subroutine input
                 lp_ID_list_tmp=lp_ID_list
                 call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, max_lp)
             end do
+
+            lp_ID_list_tmp=lp_ID_list
+            call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vel_unsort(:,j), 1, max_lp)
+
             if(mhd == 1)then
                 lp_ID_list_tmp=lp_ID_list
                 call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, max_lp)
 	        end if
         end do
+
         call cpu_time(sort_t_stop(proc_id+1))
         sort_total_time(proc_id+1) = sort_total_time(proc_id+1) + sort_t_stop(proc_id+1) - sort_t_start(proc_id+1)
 
@@ -145,6 +150,10 @@ subroutine input
         do i=1,3
             call MPI_SCATTER(mag_field_global_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
                      mag_field_local(:,2,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                     root_process, MPI_COMM_WORLD, ierr)
+
+            call MPI_SCATTER(lp_vel_unsort(:,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
+                     vel_field_local(:,2,i), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
                      root_process, MPI_COMM_WORLD, ierr)
         end do
     end if

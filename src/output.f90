@@ -42,7 +42,8 @@ subroutine output_time_averages
     implicit none
     integer :: t_pdf
     real*8, dimension(4) :: zeta_tave, zeta_tvar, xi_tave, xi_tvar !index is statistical moment
-    real*8, dimension(5) :: gamma_l_tave, gamma_a_tave, gamma_l_var_tave, gamma_a_var_tave
+    real*8, dimension(5) :: gamma_a_tave, gamma_a_var_tave
+    real*8, dimension(10) :: gamma_l_tave, gamma_l_var_tave
     real*8 :: theta_tave, theta_var_tave, phi_tave, phi_var_tave  
     real*8 :: time_average, time_variance
     real*8, dimension(N) :: eval_tave, eval_var_tave
@@ -83,11 +84,19 @@ subroutine output_time_averages
         gamma_l_tave(3) = time_average(gamma_line(:,3))
         gamma_l_tave(4) = time_average(gamma_line(:,4))
         gamma_l_tave(5) = time_average(gamma_line(:,5))
+        gamma_l_tave(6) = time_average(gamma_line(:,6)) !v b
+        gamma_l_tave(7) = time_average(gamma_line(:,7)) !v l
+        gamma_l_tave(8) = time_average(gamma_line(:,8)) !v T1
+        gamma_l_tave(9) = time_average(gamma_line(:,9)) !T1 b
         gamma_l_var_tave(1) = time_variance(gamma_line(:,1))
         gamma_l_var_tave(2) = time_variance(gamma_line(:,2))
         gamma_l_var_tave(3) = time_variance(gamma_line(:,3))
         gamma_l_var_tave(4) = time_variance(gamma_line(:,4))
         gamma_l_var_tave(5) = time_variance(gamma_line(:,5))
+        gamma_l_var_tave(6) = time_variance(gamma_line(:,6))
+        gamma_l_var_tave(7) = time_variance(gamma_line(:,7))
+        gamma_l_var_tave(8) = time_variance(gamma_line(:,8))
+        gamma_l_var_tave(9) = time_variance(gamma_line(:,9))
         gamma_a_tave(1) = time_average(gamma_surf(:,1))
         gamma_a_tave(2) = time_average(gamma_surf(:,2))
         gamma_a_tave(3) = time_average(gamma_surf(:,3))
@@ -157,6 +166,14 @@ subroutine output_time_averages
                 "&", gamma_l_tave(4), "&", sqrt(gamma_l_var_tave(4)),&
                 "&", gamma_l_tave(5), "&", sqrt(gamma_l_var_tave(5)),"\\"
             close(102)
+
+            31 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+            open(unit=102, file=line_angle_extended_results_table, action='write', form='formatted')
+                write(102,30) id, "&", gamma_l_tave(6), "&", sqrt(gamma_l_var_tave(6)),&  
+                                  "&", gamma_l_tave(7), "&", sqrt(gamma_l_var_tave(7)),&
+                                  "&", gamma_l_tave(8), "&", sqrt(gamma_l_var_tave(8)),&
+                                  "&", gamma_l_tave(9), "&", sqrt(gamma_l_var_tave(9)),"\\"
+            close(102)
         end if
 
         if(mhd == 0)then
@@ -190,6 +207,7 @@ subroutine output_time_averages
                 "&", gamma_a_tave(4), "&", sqrt(gamma_a_var_tave(4)),&
                     "&", "-", "&", "-","\\"
             close(102)
+
         end if
     end if
 

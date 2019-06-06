@@ -40,6 +40,7 @@ module global
     real*8                                  :: le3_sign 
     real*8, dimension(:,:,:,:), allocatable :: lp_vgr_local 
     real*8, dimension(:,:,:), allocatable   :: mag_field_local
+    real*8, dimension(:,:,:), allocatable   :: vel_field_local
     real*8, dimension(:,:,:,:), allocatable :: le_local 
     real*8, dimension(:,:,:), allocatable   :: le_initial_local
     real*8, dimension(:,:,:), allocatable   :: le_length_local 
@@ -62,7 +63,8 @@ module global
                                                mhd_line_evo_file
     character*100                            :: results_table, line_angle_results_table,&
                                                surf_angle_results_table, eval_results_table, pos_file,&
-                                               zeta_pdf_table, xi_pdf_table, eval_512_results_table
+                                               zeta_pdf_table, xi_pdf_table, eval_512_results_table,&
+                                               line_angle_extended_results_table
 
     integer, parameter                      :: verbose = 0
 end module global
@@ -189,6 +191,7 @@ subroutine initialize
     write(zeta_pdf_table, '(A, "tables/tab_zeta_results_pdf_",A,".txt")')outputdir, id 
     write(xi_pdf_table, '(A, "tables/tab_xi_results_pdf_",A,".txt")')outputdir, id 
     write(line_angle_results_table, '(A, "tables/tab_results_angle_line_",A,".txt")')outputdir, id 
+    write(line_angle_extended_results_table, '(A, "tables/tab_extended_results_angle_line_",A,".txt")')outputdir, id 
     write(surf_angle_results_table, '(A, "tables/tab_results_angle_surf_",A,".txt")')outputdir, id 
     write(eval_results_table, '(A, "tables/tab_results_eval_",A,".txt")')outputdir, id 
     write(eval_512_results_table, '(A, "tables/tab_results_512_eval_",A,".txt")')outputdir, id 
@@ -332,7 +335,7 @@ subroutine alloc
     allocate(lp_vgr_local(max_lp/num_procs,2,3,3),&
              sort_t_start(num_procs), sort_t_stop(num_procs), sort_total_time(num_procs),&
              comm_t_start(num_procs), comm_t_stop(num_procs), comm_total_time(num_procs),& 
-             mag_field_local(max_lp/num_procs,2,3),&
+             mag_field_local(max_lp/num_procs,2,3),vel_field_local(max_lp/num_procs,2,3),&
              le_local(max_lp/num_procs,2,3,3), le_initial_local(max_lp/num_procs,3,3), le_length_local(max_lp/num_procs,2,3),&
              B_local(max_lp/num_procs,5,3,3),&
              A_local(max_lp/num_procs,2,3), A_length_local(max_lp/num_procs,2),&
@@ -340,7 +343,7 @@ subroutine alloc
              zeta_skew(max_frame), zeta_kurt(max_frame),&
              xi_mean(max_frame), xi_var(max_frame),&
              xi_skew(max_frame), xi_kurt(max_frame),&
-             eval_mean(N, max_frame), eval_var(N, max_frame), gamma_line(max_frame,5), &
+             eval_mean(N, max_frame), eval_var(N, max_frame), gamma_line(max_frame,10), &
              gamma_line_var(max_frame,5),gamma_surf(max_frame,5), &
              gamma_surf_var(max_frame,5), theta_var(max_frame),&
              phi_var(max_frame))
@@ -353,7 +356,7 @@ subroutine dealloc
     use global
     implicit none
 
-    deallocate(lp_vgr_local, mag_field_local,&
+    deallocate(lp_vgr_local, mag_field_local, vel_field_local,&
               sort_t_start, sort_t_stop, sort_total_time,&
               comm_t_start, comm_t_stop, comm_total_time,& 
               le_local, le_initial_local, le_length_local, &
