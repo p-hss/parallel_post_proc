@@ -1,9 +1,9 @@
 #!/bin/bash --login
 #$ -cwd
-#$ -N pproc_V01
+#$ -N pproc_M27
 #$ -o output.txt
 #$ -j y 
-#$ -l h_rt=01:00:00
+#$ -l h_rt=04:00:00
 #$ -l intel
 #$ -m bea
 #$ -M p.hess@astro.physik.tu-berlin.de
@@ -11,4 +11,4 @@
 echo $(date +"%Y-%m-%d_%r")
 pwd
 
-./run < param/V01.dat
+./run < param/M27.dat
