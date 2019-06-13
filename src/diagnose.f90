@@ -300,6 +300,7 @@ subroutine strain_stats(frame)
 
             angle(9,lpi) =  acos(abs(dot_product(mag_field_local(lpi,2,:), pos_strain_dir(:)))&
                               /(vector_length(mag_field_local(lpi,2,:))))
+            angle(10,lpi) = 0
         else
             angle(5:10,lpi) = 0
         end if
