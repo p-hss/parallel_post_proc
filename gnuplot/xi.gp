@@ -1,60 +1,35 @@
 reset
 
-#set terminal epslatex color size 6,4 
-set terminal png 
+set terminal epslatex color size 6,4 
 
-set loadpath '../../../.config'
-load 'spectral.pal'
+set loadpath '../../gnuplot_palettes/'
+#load 'contrast.pal'
+load 'spectral_poster.pal'
 
-set yrange[0:0.25]
-set xrange[0:]
+set yrange[0:0.2]
+set xrange[0:30]
 
 set xlabel '$t/ \tau_{\eta}$'
-set ylabel '$\langle \xi \rangle \quad \textrm{var}(\xi)$ '
+set ylabel '$\langle \xi \rangle, \quad \textrm{var}(\xi)$ '
 
 set key
-unset grid
+set key spacing 1.25
 
-mhd = 0 
+sim = "M04 H00"
+names = "MHD HD"
 
-if(mhd == 0){
+files_1 = "../data/sim_"
+files_2 = "/surf_evo_"
+files_3 = ".dat"
 
-    load 'blues.pal'
-    sim1 = "B05"
-    dir = "../data/sim_"
-    name = "/surf_evo_"
-    file = ".dat"
-    file1 = dir.sim1.name.sim1.file
-   
-    #set output "figures/hd_surf_evo.tex"
-    set output "figures/hd_surf_evo.png"
+s1="100 1000"
+s2="200 2000"
 
-    plot file1 u 1:2 w l title sim1.': $\langle \xi (t) \rangle$' ls 18, \
-         file1 u 1:3 w l title sim1.': $\textrm{var}(\xi (t))$' ls 28,\
-}
+set output "figures/surface_evo_256.tex"
+plot for [i=1:words(sim)]\
+     files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
+     title word(names,i).' $\langle \xi \rangle$' ls word(s1,i),\
+     for [i=1:words(sim)]\
+     files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:3 w l \
+     title word(names,i).' var$(\xi)$' ls word(s2,i),\
 
-if(mhd == 1){
-
-    load 'reds.pal'
-    sim1 = "Q02"
-    dir = "../data/sim_"
-    name = "/surf_evo_"
-    file = ".dat"
-    file1 = dir.sim1.name.sim1.file
-    sim2 = "Q10"
-    file2 = dir.sim2.name.sim2.file
-    sim3 = "Q02"
-    file3 = dir.sim3.name.sim3.file
-    sim4 = "Q10"
-    file4 = dir.sim4.name.sim4.file
-
-    set output "figures/mhd_surf_evo.tex"
-    plot file1 u 1:2 w l  title sim1.': $\langle \xi (t) \rangle$' ls 18, \
-         file1 u 1:3 w l  title sim1.': $\textrm{var}(\xi (t))$' ls 28,\
-         file2 u 1:2 w l  title sim2.': $\langle \xi (t) \rangle$' ls 17, \
-         file2 u 1:3 w l  title sim2.': $\textrm{var}(\xi (t))$' ls 27,\
-         #file3 u 1:2 w l  title sim3.': $\langle \xi (t) \rangle$' ls 16, \
-         file3 u 1:3 w l  title sim3.': $\textrm{var}(\xi (t))$' ls 26,\
-         file4 u 1:2 w l  title sim4.': $\langle \xi (t) \rangle$' ls 15, \
-         file4 u 1:3 w l  title sim4.': $\textrm{var}(\xi (t))$' ls 25
-  }
