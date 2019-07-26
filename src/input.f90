@@ -108,11 +108,11 @@ subroutine input
         do j=1,3
             do i=1,3
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1, int(max_lp,4))
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), lp_vgr_global_unsort(:,i,j), 1_8, int(max_lp,8))
             end do
             if(mhd == 1)then
                 lp_ID_list_tmp=lp_ID_list
-                call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1, int(max_lp,4))
+                call quicksort(max_lp, int(lp_ID_list_tmp,8), mag_field_global_unsort(:,j), 1_8, int(max_lp,8))
 	        end if
         end do
         call cpu_time(sort_t_stop(proc_id+1))
@@ -170,10 +170,11 @@ end subroutine input
 recursive subroutine quicksort(n, l, a, first, last)
   implicit none
   real*8  :: x, ta
-  integer, dimension(n) :: l
+  integer*8, dimension(n) :: l
   real*8,  dimension(n) :: a
-  integer :: first, last
-  integer ::  i, j, n, t
+  integer*8 :: first, last
+  integer*8 ::  i, j, t
+  integer ::  n
 
   x = l( (first+last) / 2 )
   i = first

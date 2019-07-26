@@ -124,12 +124,12 @@ subroutine growth_rates(frame)
         call histogram1D(zeta, mode)
     end if
 
-    !===================compute the surface stretching rate xi===================
+    !===============compute the surface stretching rate xi===================
     do lpi = 1, proc_particles!loop over all particles per processor
         xi(lpi) = (log(a_length_local(lpi,2)) - log(a_length_local(lpi,1)))/dt 
      end do
 
-    !===================Gather all xis for running stats===================
+    !===================Gather all xis for running stats=====================
     call MPI_GATHER(xi(:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
                     xi_global(:), max_lp/num_procs, MPI_DOUBLE_PRECISION,&
                     root_process, MPI_COMM_WORLD, ierr)

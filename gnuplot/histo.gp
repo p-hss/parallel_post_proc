@@ -1,6 +1,7 @@
 reset
 
-set terminal epslatex color size 6,4 
+#set terminal epslatex color size 6,4 
+set terminal pdf
 
 set xrange[-5:5]
 set yrange[0.0001:]
@@ -19,6 +20,7 @@ names="MHD HD"
 zeta="0.069 0.112"
 sigma="0.095 0.123" 
 
+sim="B05"
 angle="".sprintf("%1.2f", 0.98)." ".\
          sprintf("%1.2f", 0.94)." ".\
          sprintf("%1.2f", 0.84)." ".\
@@ -40,6 +42,13 @@ set logscale y
 
 G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
 G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+G(x) = 1./(sqrt(2*pi)) * exp( -(x)**2/2 )
+
+#zeta="0.118 0.116 0.109 0.100 0.098 0.099" #Z0
+#zeta="0.08 0.075 0.066 0.062 0.062 0.061" #Z4
+#sigma="0.205 0.189 0.169 0.161 0.157 0.152" #Z4
+zeta="0.1.217"
+sigma="0.182"
 
 #fit G(x) files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6))/word(sigma,6):2 via a
 fit [-1:1] G1(x) files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2 via sigma1, mu1
@@ -69,3 +78,4 @@ set output "figures/histograms/mhd_xi_histo_t".time.".tex"
 plot for [i=1:words(sim)]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
      title word(sim,i).': $H(\xi,\tau_{\eta}='.time.'20)$'  ls i+9,
+

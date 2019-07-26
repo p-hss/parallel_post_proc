@@ -6,20 +6,20 @@ vpath %.o $(objectdir)
 vpath %.mod $(objectdir) 
 
 ifeq ($(shell hostname),gamling)
-CFlaggs = -J$(objectdir) -O3 
+CFlaggs = -J$(objectdir) -O3
 LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 FC = mpif90 
 endif
 
 ifeq ($(shell hostname),cluster-i)
-CFlaggs = -J$(objectdir) -O3 
+CFlaggs = -J$(objectdir) -O3
 LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 FC = mpif90 
 endif
 
 
 ifeq ($(shell hostname),cluster-a)
-CFlaggs = -J$(objectdir) -O3 
+CFlaggs = -J$(objectdir) -O3
 LIB = -llapack -lblas -L/home/gamling/p.hess/lib -L/home/gamling/p.hess/Downloads/lapack-3.8.0
 FC = mpif90 
 endif

@@ -1,7 +1,7 @@
 #!/bin/bash --login
 #$ -cwd
-#$ -pe ompi* 256
-#$ -N pproc_R01
+#$ -pe ompi* 64
+#$ -N pproc_M04
 #$ -o output/output_$JOB_ID
 #$ -j y 
 #$ -l h_rt=12:00:00
@@ -10,4 +10,4 @@
 
 module add ompi-1.2.2
 
-mpirun -np $NSLOTS run < param/R01_param.dat 
+mpirun -np $NSLOTS run < param/M04.dat 
