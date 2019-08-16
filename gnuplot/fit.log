@@ -19091,3 +19091,521 @@ mu2            -0.000  1.000
 =======
 >>>>>>> bfba4fd6375fa951e192b9b23e722d7458bb4de4
 >>>>>>> ebdf2682f4f332be89760a3c0e9dd29b2286bb88
+
+
+*******************************************************************************
+Tue Jul 30 17:49:25 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 5.1322215424e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 2.9475111446e-01  -3.10e-02  2.02e-07    1.618148e-01   1.457417e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.294751
+rel. change during last iteration : -3.09861e-07
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0610821
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00373103
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.161815         +/- 0.001368     (0.8453%)
+mu1             = 0.145742         +/- 0.001674     (1.149%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:50:33 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 5.1322215424e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 2.9475111446e-01  -3.10e-02  2.02e-07    1.618148e-01   1.457417e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.294751
+rel. change during last iteration : -3.09861e-07
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0610821
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00373103
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.161815         +/- 0.001368     (0.8453%)
+mu1             = 0.145742         +/- 0.001674     (1.149%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:51:33 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 9.8268957701e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+  10 4.0962039721e-01  -4.23e-01  2.02e-06    9.501405e-02   6.962205e-02
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.40962
+rel. change during last iteration : -4.2323e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0720074
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00518507
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.095014         +/- 0.0007255    (0.7636%)
+mu1             = 0.069622         +/- 0.0008879    (1.275%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:51:33 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 7.1048048230e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 4.1142493837e-01   0.00e+00  2.02e+06    1.233620e-01   1.125093e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.411425
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0721659
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00520791
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.123362         +/- 0.001076     (0.8719%)
+mu2             = 0.112509         +/- 0.001316     (1.17%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:54:03 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 9.8268957701e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+  10 4.0962039721e-01  -4.23e-01  2.02e-06    9.501405e-02   6.962205e-02
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.40962
+rel. change during last iteration : -4.2323e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0720074
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00518507
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.095014         +/- 0.0007255    (0.7636%)
+mu1             = 0.069622         +/- 0.0008879    (1.275%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:54:03 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 7.1048048230e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 4.1142493837e-01   0.00e+00  2.02e+06    1.233620e-01   1.125093e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.411425
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0721659
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00520791
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.123362         +/- 0.001076     (0.8719%)
+mu2             = 0.112509         +/- 0.001316     (1.17%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:55:43 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 9.8268957701e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+  10 4.0962039721e-01  -4.23e-01  2.02e-06    9.501405e-02   6.962205e-02
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.40962
+rel. change during last iteration : -4.2323e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0720074
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00518507
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.095014         +/- 0.0007255    (0.7636%)
+mu1             = 0.069622         +/- 0.0008879    (1.275%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:55:43 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 7.1048048230e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 4.1142493837e-01   0.00e+00  2.02e+06    1.233620e-01   1.125093e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.411425
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0721659
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00520791
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.123362         +/- 0.001076     (0.8719%)
+mu2             = 0.112509         +/- 0.001316     (1.17%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:56:17 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 9.8268957701e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+  10 4.0962039721e-01  -4.23e-01  2.02e-06    9.501405e-02   6.962205e-02
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 0.40962
+rel. change during last iteration : -4.2323e-06
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0720074
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00518507
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.095014         +/- 0.0007255    (0.7636%)
+mu1             = 0.069622         +/- 0.0008879    (1.275%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 17:56:17 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 7.1048048230e+01   0.00e+00  2.02e-01    1.000000e+00   1.000000e+00
+   8 4.1142493837e-01   0.00e+00  2.02e+06    1.233620e-01   1.125093e-01
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 0.411425
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 79
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0721659
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00520791
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.123362         +/- 0.001076     (0.8719%)
+mu2             = 0.112509         +/- 0.001316     (1.17%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.001  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 18:09:12 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 321
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 1.0314337670e+02   0.00e+00  2.01e-01    1.000000e+00   1.000000e+00
+  19 1.5786846165e-01  -1.27e-04  2.01e+01    2.695655e-01   1.311689e-01
+
+After 19 iterations the fit converged.
+final sum of squares of residuals : 0.157868
+rel. change during last iteration : -1.27056e-09
+
+degrees of freedom    (FIT_NDF)                        : 319
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.022246
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000494885
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.269565         +/- 0.0005356    (0.1987%)
+mu1             = 0.131169         +/- 0.0006554    (0.4997%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 18:09:12 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 321
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 3.1046483656e+02   0.00e+00  2.01e-01    1.000000e+00   1.000000e+00
+  22 5.2571429172e+00  -1.60e-02  2.01e+01    1.111387e-01   5.059750e-02
+
+After 22 iterations the fit converged.
+final sum of squares of residuals : 5.25714
+rel. change during last iteration : -1.59637e-07
+
+degrees of freedom    (FIT_NDF)                        : 319
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.128375
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0164801
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.111139         +/- 0.0008181    (0.7361%)
+mu2             = 0.0505975        +/- 0.001001     (1.979%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 18:13:08 2019
+
+
+FIT:    data read from files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 321
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G1(x)
+	G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma1        mu1          
+   0 1.0314337670e+02   0.00e+00  2.01e-01    1.000000e+00   1.000000e+00
+  19 1.5786846165e-01  -1.27e-04  2.01e+01    2.695655e-01   1.311689e-01
+
+After 19 iterations the fit converged.
+final sum of squares of residuals : 0.157868
+rel. change during last iteration : -1.27056e-09
+
+degrees of freedom    (FIT_NDF)                        : 319
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.022246
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000494885
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma1          = 0.269565         +/- 0.0005356    (0.1987%)
+mu1             = 0.131169         +/- 0.0006554    (0.4997%)
+
+correlation matrix of the fit parameters:
+                sigma1 mu1    
+sigma1          1.000 
+mu1            -0.000  1.000 
+
+
+*******************************************************************************
+Tue Jul 30 18:13:08 2019
+
+
+FIT:    data read from files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2
+        format = x:z
+        x range restricted to [-1.00000 : 1.00000]
+        #datapoints = 321
+        residuals are weighted equally (unit weight)
+
+function used for fitting: G2(x)
+	G2(x) = 1./(sigma2*sqrt(2*pi)) * exp( -(x-mu2)**2 / (2*sigma2**2) )
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   sigma2        mu2          
+   0 3.1046483656e+02   0.00e+00  2.01e-01    1.000000e+00   1.000000e+00
+  22 5.2571429172e+00  -1.60e-02  2.01e+01    1.111387e-01   5.059750e-02
+
+After 22 iterations the fit converged.
+final sum of squares of residuals : 5.25714
+rel. change during last iteration : -1.59637e-07
+
+degrees of freedom    (FIT_NDF)                        : 319
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.128375
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0164801
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+sigma2          = 0.111139         +/- 0.0008181    (0.7361%)
+mu2             = 0.0505975        +/- 0.001001     (1.979%)
+
+correlation matrix of the fit parameters:
+                sigma2 mu2    
+sigma2          1.000 
+mu2            -0.000  1.000 
