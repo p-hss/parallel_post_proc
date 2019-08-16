@@ -3,24 +3,22 @@ reset
 #set terminal epslatex color size 6,4 
 set terminal pdf
 
-set xrange[-3:3]
-set yrange[0.001:1.0]
+set xrange[-5:5]
+set yrange[0.0001:]
 
 set loadpath '../../gnuplot_palettes/'
 load 'spectral_poster.pal'
+#load 'contrast.pal'
 
 set ylabel 'Probability density function'
-set key below Left reverse
+#set key below Left reverse
+set key
 set bmargin 7
 
-#sim="Z01 Z02 Z03 Z04 Z05 Z06"
-#sim="Z41 Z42 Z43 Z44 Z45 Z46"
-#angle="".sprintf("%1.2f", 0.98)." ".\
-#         sprintf("%1.2f", 0.94)." ".\
-#         sprintf("%1.2f", 0.84)." ".\
-#         sprintf("%1.2f", 0.71)." ".\
-#         sprintf("%1.1f", 0.5)." ".\
-#         sprintf("%1.0f", 0)." "
+sim="M04 H00"
+names="MHD HD"
+zeta="0.069 0.112"
+sigma="0.095 0.123" 
 
 sim="B05"
 angle="".sprintf("%1.2f", 0.98)." ".\
@@ -35,9 +33,11 @@ files_1 = "../data/sim_"
 files_2 = "/line_histo_"
 files_3 = "_tkolmo_".time.".dat"
 
+s1="100 1000"
+s2="200 2000"
+
 set xtics 2
-#set logscale y
-#set logscale x
+set logscale y
 #set format y "$10^{%L}$"
 
 G1(x) = 1./(sigma1*sqrt(2*pi)) * exp( -(x-mu1)**2 / (2*sigma1**2) )
@@ -51,30 +51,30 @@ zeta="0.1.217"
 sigma="0.182"
 
 #fit G(x) files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6))/word(sigma,6):2 via a
-#fit G1(x) files_1.word(sim,1).files_2.word(sim,1).files_3 u ($1-word(zeta,1))/word(sigma,1):2 via sigma1, mu1
-#fit G2(x) files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6)):2 via sigma2, mu2
+fit [-1:1] G1(x) files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2 via sigma1, mu1
+fit [-1:1] G2(x) files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2 via sigma2, mu2
 
 set xlabel '$(\zeta-\langle \zeta \rangle)/\sigma$'
 #set xlabel offset 0,0.5
 
-#set output "figures/histograms/mhd_zeta_Z4_4_histo_t".time."_256.tex"
-#plot for [i=1:words(sim)]\
-#     files_1.word(sim,i).files_2.word(sim,i).files_3 u ($1-word(zeta,i))/word(sigma,i):2 w l \
-#     title ' $\sigma_{c}=$ '.word(angle,i) ls i+9,\
-#     G(x) ls 200  title "Gauss"
-#     #G2(x) ls 200  notitle 
-#     #title word(sim,i).': $H(\zeta,\tau_{\eta}='.time.')$'  ls i+9
-
-set output "figures/histograms/mhd_zeta_Z4_4_histo_t".time."_256.pdf"
-plot for [i=1:words(sim)]\
+set output "figures/histograms/mhd_zeta_histo_t".time."_256.tex"
+plot for [i=1:2]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u ($1-word(zeta,i))/word(sigma,i):($2*word(sigma,i)) w l \
-     title ' $\sigma_{c}=$ '.word(angle,i) ls i+9,\
-     G(x) ls 200  title "Gauss"
-     #G2(x) ls 200  notitle 
+     title word(names,i).'' ls word(s1,i),\
+     G1(x*word(sigma,1)+word(zeta,1))*word(sigma,1) ls 200  title "Gauss fit"
+     #G2(x*word(sigma,2)+word(zeta,2))*word(sigma,2) ls 200  notitle 
      #title word(sim,i).': $H(\zeta,\tau_{\eta}='.time.')$'  ls i+9
 
+#set output "figures/histograms/mhd_zeta_histo_t".time."_256.tex"
+#plot for [i=1:words(sim)]\
+#     files_1.word(sim,i).files_2.word(sim,i).files_3 u ($1-word(zeta,i))/word(sigma,i):($2*word(sigma,i)) w l \
+#     title word(names,i).'' ls i+9,\
+#     #G(x) ls 200  title "Gauss",\
+#     G2(x) ls 200  notitle 
+#     #title word(sim,i).': $H(\zeta,\tau_{\eta}='.time.')$'  ls i+9
+
 set xlabel '$\xi$'
-set output "figures/histograms/mhd_xi_Z4_histo_t".time.".tex"
+set output "figures/histograms/mhd_xi_histo_t".time.".tex"
 plot for [i=1:words(sim)]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u 1:2 w l \
      title word(sim,i).': $H(\xi,\tau_{\eta}='.time.'20)$'  ls i+9,
