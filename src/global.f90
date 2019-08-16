@@ -335,7 +335,7 @@ subroutine alloc
     allocate(lp_vgr_local(max_lp/num_procs,2,3,3),&
              sort_t_start(num_procs), sort_t_stop(num_procs), sort_total_time(num_procs),&
              comm_t_start(num_procs), comm_t_stop(num_procs), comm_total_time(num_procs),& 
-             mag_field_local(max_lp/num_procs,2,3),vel_field_local(max_lp/num_procs,2,3),&
+             mag_field_local(max_lp/num_procs,2,3), vel_field_local(max_lp/num_procs,2,3),&
              le_local(max_lp/num_procs,2,3,3), le_initial_local(max_lp/num_procs,3,3), le_length_local(max_lp/num_procs,2,3),&
              B_local(max_lp/num_procs,5,3,3),&
              A_local(max_lp/num_procs,2,3), A_length_local(max_lp/num_procs,2),&
@@ -344,8 +344,8 @@ subroutine alloc
              xi_mean(max_frame), xi_var(max_frame),&
              xi_skew(max_frame), xi_kurt(max_frame),&
              eval_mean(N, max_frame), eval_var(N, max_frame), gamma_line(max_frame,10), &
-             gamma_line_var(max_frame,5),gamma_surf(max_frame,5), &
-             gamma_surf_var(max_frame,5), theta_var(max_frame),&
+             gamma_line_var(max_frame,10),gamma_surf(max_frame,10), &
+             gamma_surf_var(max_frame,10), theta_var(max_frame),&
              phi_var(max_frame))
 end subroutine 
                                                                                                          

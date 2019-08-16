@@ -167,9 +167,9 @@ subroutine output_time_averages
                 "&", gamma_l_tave(5), "&", sqrt(gamma_l_var_tave(5)),"\\"
             close(102)
 
-            31 format(A3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
+            31 format(A3,A1,ES8.3E1,A1,ES8.3E1,A1,F10.3,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A1,F10.3,A1,ES8.3E1,A2)
             open(unit=102, file=line_angle_extended_results_table, action='write', form='formatted')
-                write(102,30) id, "&", gamma_l_tave(6), "&", sqrt(gamma_l_var_tave(6)),&  
+                write(102,31) id, "&", gamma_l_tave(6), "&", sqrt(gamma_l_var_tave(6)),&  
                                   "&", gamma_l_tave(7), "&", sqrt(gamma_l_var_tave(7)),&
                                   "&", gamma_l_tave(8), "&", sqrt(gamma_l_var_tave(8)),&
                                   "&", gamma_l_tave(9), "&", sqrt(gamma_l_var_tave(9)),"\\"

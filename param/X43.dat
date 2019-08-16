@@ -1,14 +1,15 @@
 1000192 !max_lp             -   number of lagrange particles
 8       !nioproc            -   number of output files per io process
-Y01     !id                 -   simulation ID
+X43     !id                 -   simulation ID
 1       !mhd                -   enable magnetic field statistics
+9       !run        	    -   MHDT frame index, starting from 0
 1       !start_frame        -   start frame of the MHDT Position* files
-1250       !max_frame           -   end frame
+237     !max_frame          -   end frame
 20      !corr_start_time    -   start time for autocovariance measurement
 50      !corr_end_time      -   end time
 20      !average_start_time -   start time for the time averages
 20      !histo_time         -   time frame for histograms
-0.3382  !t_kolmo            -   kolmogorov time scale
-0.0125  !bin_size           -   bin size for zeta, xi histograms
+0.0887  !t_kolmo            -   kolmogorov time scale
+0.00625 !bin_size           -   bin size for zeta, xi histograms
 0.125   !bin_size_w         -   bin size for cauchy green 3D histogram
-0.0125  !bin_size_angle     -   bin size for angle histograms
+0.00625 !bin_size_angle     -   bin size for angle histograms

@@ -425,7 +425,8 @@ subroutine angle_histograms(frame)
             !computing the eigen vectors and values
             call eigen_val_vec(strain_rate, eval, evec)
             !computes the maximum pos and neg strain rate and the directions
-            call max_sort(eval, evec, pos_strain_dir, mid_strain_dir, neg_strain_dir, max_pos_eval, max_mid_eval, max_neg_eval)
+            call max_sort(eval, evec, pos_strain_dir, mid_strain_dir,&
+             neg_strain_dir, max_pos_eval, max_mid_eval, max_neg_eval)
             
             !unity normalization for max positive strain rate
             pos_strain_dir(:) = pos_strain_dir(:)/vector_length(pos_strain_dir(:))
