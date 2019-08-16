@@ -1,0 +1,13 @@
+#!/bin/bash --login
+#$ -cwd
+#$ -pe ompi* 64
+#$ -N pproc_M04
+#$ -o output/output_$JOB_ID
+#$ -j y 
+#$ -l h_rt=12:00:00
+#$ -m bea
+#$ -M p.hess@astro.physik.tu-berlin.de
+
+module add ompi-1.2.2
+
+mpirun -np $NSLOTS run < param/M04.dat 

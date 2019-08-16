@@ -109,7 +109,7 @@ subroutine histogram1D(variable, mode)
 
     histo = 0
     histo_global = 0
-    count_excess=0
+    count_excess = 0
 
     do lpi=1, proc_particles
         if(variable(lpi) < max_val)then

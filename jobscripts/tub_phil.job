@@ -1,0 +1,14 @@
+#!/bin/bash --login
+#$ -cwd
+#$ -N pproc_M30
+#$ -o output.txt
+#$ -j y 
+#$ -l h_rt=04:00:00
+#$ -l intel
+#$ -m bea
+#$ -M p.hess@astro.physik.tu-berlin.de
+
+echo $(date +"%Y-%m-%d_%r")
+pwd
+
+./run < param/M30.dat

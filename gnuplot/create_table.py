@@ -1,17 +1,14 @@
 import math
+
 def read_data(i,j,k):
 
-    #sim=["Z01", "Z02", "Z03", "Z04",
-    #     "Z05", "Z06"]
-    sim=["Z41", "Z42", "Z43", "Z44",
-         "Z45", "Z46"]
+    #sim=["Z41", "Z42", "Z43", "Z44",
+    #     "Z45", "Z46"]
+    sim=["Z41"]
 
-    files_1=["../data/sim_",
-             "/home/gamling/p.hess/Masterarbeit/Thesis"]
-    files_2=["/tables/tab_results_", 
+    input_table=["/tables/tab_results_", 
             "/tables/tab_results_angle_line_",
             "/tables/tab_mhd_sim_charact_"]
-    files_3=[".txt", "_1.txt"]
     if k == 1:
         file=files_1[k]+files_2[j]+sim[i]+files_3[k]
     else:
