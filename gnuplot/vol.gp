@@ -10,8 +10,7 @@ load 'spectral_poster.pal'
 #load 'contrast.pal'
 
 set xlabel '$t/ \tau_{\eta}$'
-set ylabel '$\langle \Theta \rangle, \quad \
-\langle  \Phi \rangle$'
+set ylabel '$\langle \Theta \rangle, \quad \langle  \Phi \rangle$'
 
 set key right bottom 
 unset grid
