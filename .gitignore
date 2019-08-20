@@ -13,3 +13,4 @@ output.txt
 err/*
 !err/.gitkeep
 !data/.gitkeep
+*.tar
