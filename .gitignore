@@ -1,5 +1,4 @@
 figures/
-data/
 results/
 *.o
 *.mod
@@ -13,5 +12,4 @@ output/*
 output.txt
 err/*
 !err/.gitkeep
-data/*
 !data/.gitkeep
