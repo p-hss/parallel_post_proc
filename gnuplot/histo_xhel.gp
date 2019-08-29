@@ -1,6 +1,6 @@
 reset
 
-set terminal epslatex color size 6,4 
+set terminal epslatex color size 6,3.5 
 
 set xrange[-5:5]
 set yrange[0.0001:]
@@ -12,7 +12,6 @@ load 'spectral_poster.pal'
 set ylabel 'PDF'
 #set key below Left reverse
 set key
-set bmargin 7
 
 sim="X40 X46"
 names="XHEL1 XHEL6"
@@ -44,7 +43,7 @@ fit [-1:1] G2(x) files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2 via sigma
 set xlabel '$(\zeta-\langle \zeta \rangle)/\sigma$'
 #set xlabel offset 0,0.5
 
-set output "figures/histograms/xhel_zeta_histo_t".time."_256.tex"
+set output "figures/histograms/xhel_zeta_histo_new_t".time."_256.tex"
 plot for [i=1:2]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u ($1-word(zeta,i))/word(sigma,i):($2*word(sigma,i)) w l \
      title word(names,i).'' ls word(s1,i),\

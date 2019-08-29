@@ -1,7 +1,7 @@
 reset
 
-#set terminal epslatex color size 6,4 
-set terminal pdf
+set terminal epslatex color size 6,3.5 
+#set terminal pdf
 
 set xrange[-5:5]
 set yrange[0.0001:]
@@ -13,14 +13,12 @@ load 'spectral_poster.pal'
 set ylabel 'Probability density function'
 #set key below Left reverse
 set key
-set bmargin 7
 
 sim="M04 H00"
 names="MHD HD"
 zeta="0.069 0.112"
 sigma="0.095 0.123" 
 
-sim="B05"
 angle="".sprintf("%1.2f", 0.98)." ".\
          sprintf("%1.2f", 0.94)." ".\
          sprintf("%1.2f", 0.84)." ".\
@@ -47,8 +45,8 @@ G(x) = 1./(sqrt(2*pi)) * exp( -(x)**2/2 )
 #zeta="0.118 0.116 0.109 0.100 0.098 0.099" #Z0
 #zeta="0.08 0.075 0.066 0.062 0.062 0.061" #Z4
 #sigma="0.205 0.189 0.169 0.161 0.157 0.152" #Z4
-zeta="0.1.217"
-sigma="0.182"
+#zeta="0.1217"
+#sigma="0.182"
 
 #fit G(x) files_1.word(sim,6).files_2.word(sim,6).files_3 u ($1-word(zeta,6))/word(sigma,6):2 via a
 fit [-1:1] G1(x) files_1.word(sim,1).files_2.word(sim,1).files_3 u 1:2 via sigma1, mu1
@@ -57,7 +55,7 @@ fit [-1:1] G2(x) files_1.word(sim,2).files_2.word(sim,2).files_3 u 1:2 via sigma
 set xlabel '$(\zeta-\langle \zeta \rangle)/\sigma$'
 #set xlabel offset 0,0.5
 
-set output "figures/histograms/mhd_zeta_histo_t".time."_256.tex"
+set output "figures/histograms/mhd_zeta_histo_new_t".time."_256.tex"
 plot for [i=1:2]\
      files_1.word(sim,i).files_2.word(sim,i).files_3 u ($1-word(zeta,i))/word(sigma,i):($2*word(sigma,i)) w l \
      title word(names,i).'' ls word(s1,i),\

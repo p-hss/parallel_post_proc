@@ -5,18 +5,18 @@
 # Initial working directory:
 #SBATCH -D ./
 # Job Name:
-#SBATCH -J mhdt_Z46
+#SBATCH -J pp_V41
 # Queue (Partition):
 #SBATCH --partition=short
 # Number of nodes and MPI tasks per node:
-#SBATCH --nodes=4
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=32
 #
 #SBATCH --mail-type=none
 #SBATCH --mail-user=phess@rzg.mpg.de
 #
 # Wall clock limit:
-#SBATCH --time=04:00:00
+#SBATCH --time=03:00:00
 
 # Run the program:
-srun ./run < param/Z46.dat
+srun ./run < param/V41.dat

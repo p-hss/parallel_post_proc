@@ -225,9 +225,9 @@ subroutine strain_stats(frame)
     real*8                      :: max_mid 
     real*8, dimension(3)        :: pos_strain_dir, mid_strain_dir, neg_strain_dir 
     real*8                      :: pos_strain_dir_length, mid_strain_dir_length, neg_strain_dir_length
-    real*8, dimension(5,max_lp) :: angle 
-    real*8, dimension(5)        :: gamma_line_l2 
-    real*8, dimension(5)        :: gamma_surf_l2 
+    real*8, dimension(10,max_lp):: angle 
+    real*8, dimension(10)        :: gamma_line_l2 
+    real*8, dimension(10)        :: gamma_surf_l2 
     real*8, dimension(n)        :: vorticity, vorticity_normed
     real*8, dimension(n)        :: eval
     real*8, dimension(n,n)      :: mat_buffer !storing the VG for eingenv* computation
@@ -288,8 +288,21 @@ subroutine strain_stats(frame)
             !angle between magnetic field and line element 
             angle(5,lpi) =  acos(abs(dot_product(le_local(lpi,2,:,1), mag_field_local(lpi,2,:)))&
                               /(le_length_local(lpi,2,1)* vector_length(mag_field_local(lpi,2,:))))
+
+            angle(6,lpi) =  acos(abs(dot_product(vel_field_local(lpi,2,:), mag_field_local(lpi,2,:)))&
+                              /(vector_length(vel_field_local(lpi,2,:))* vector_length(mag_field_local(lpi,2,:))))
+
+            angle(7,lpi) =  acos(abs(dot_product(le_local(lpi,2,:,1), vel_field_local(lpi,2,:)))&
+                              /(le_length_local(lpi,2,1)* vector_length(vel_field_local(lpi,2,:))))
+
+            angle(8,lpi) =  acos(abs(dot_product(vel_field_local(lpi,2,:), pos_strain_dir(:)))&
+                              /(vector_length(vel_field_local(lpi,2,:))))
+
+            angle(9,lpi) =  acos(abs(dot_product(mag_field_local(lpi,2,:), pos_strain_dir(:)))&
+                              /(vector_length(mag_field_local(lpi,2,:))))
+            angle(10,lpi) = 0
         else
-            angle(5,lpi) = 0
+            angle(5:10,lpi) = 0
         end if
 
         !mean angle
@@ -391,11 +404,14 @@ subroutine angle_histograms(frame)
         !10 - magnetic_mid_strain_angle_histo
         !11 - magnetic_neg_strain_angle_histo
         !12 - magnetic_vorticity_angle_histo
+        !13 - magnetic_velocity_angle_histo
+        !14 - positive_strain_rate_velocity_angle_histo
+        !15 - velocity_angle_histo
 
     if(frame == histo_frame)then
         number_bin = int(ceiling(2*max_val/bin_size_angle))
 
-        allocate(angle_histo(number_bin,12), angle_histo_global(number_bin,12))
+        allocate(angle_histo(number_bin,15), angle_histo_global(number_bin,15))
         angle_histo=0
         angle_histo_global=0
 
@@ -409,7 +425,8 @@ subroutine angle_histograms(frame)
             !computing the eigen vectors and values
             call eigen_val_vec(strain_rate, eval, evec)
             !computes the maximum pos and neg strain rate and the directions
-            call max_sort(eval, evec, pos_strain_dir, mid_strain_dir, neg_strain_dir, max_pos_eval, max_mid_eval, max_neg_eval)
+            call max_sort(eval, evec, pos_strain_dir, mid_strain_dir,&
+             neg_strain_dir, max_pos_eval, max_mid_eval, max_neg_eval)
             
             !unity normalization for max positive strain rate
             pos_strain_dir(:) = pos_strain_dir(:)/vector_length(pos_strain_dir(:))
@@ -507,6 +524,27 @@ subroutine angle_histograms(frame)
                 bin = ceiling((angle + max_val)/bin_size_angle)
                 angle_histo(bin,12) = angle_histo(bin,12) + 1
 
+                !++++++++++++++++++++++magnetic velocity angle binning+++++++++++++++++++++++++
+                angle = abs( dot_product(mag_field_local(lpi,2,:), vel_field_local(lpi,2,:))&
+                    /(vector_length(mag_field_local(lpi,2,:))*vector_length(vel_field_local(lpi,2,:))))
+
+                bin = ceiling((angle + max_val)/bin_size_angle)
+                angle_histo(bin,13) = angle_histo(bin,13) + 1
+
+                !++++++++++++++++++++++magnetic velocity angle binning+++++++++++++++++++++++++
+                angle = abs( dot_product(mag_field_local(lpi,2,:), vel_field_local(lpi,2,:))&
+                    /(vector_length(mag_field_local(lpi,2,:))*vector_length(vel_field_local(lpi,2,:))))
+
+                bin = ceiling((angle + max_val)/bin_size_angle)
+                angle_histo(bin,14) = angle_histo(bin,14) + 1
+
+                !++++++++++++++++++++++velocityfield line element angle binning+++++++++++++++++++++++++
+                angle = abs( dot_product(vel_field_local(lpi,2,:), le_local(lpi,2,:,1))&
+                    /(vector_length(vel_field_local(lpi,2,:))*vector_length(le_local(lpi,2,:,1))))
+
+                bin = ceiling((angle + max_val)/bin_size_angle)
+                angle_histo(bin,15) = angle_histo(bin,15) + 1
+
             end if
         end do
 
@@ -525,7 +563,7 @@ subroutine angle_histograms(frame)
 
         if(mhd == 1)then
 
-            do i=8, 12
+            do i=8, 15
                 call MPI_REDUCE(angle_histo(:,i), angle_histo_global(:,i), number_bin, MPI_DOUBLE_PRECISION,&
                                 MPI_SUM, root_process, MPI_COMM_WORLD, ierr)
 
@@ -563,7 +601,10 @@ subroutine angle_histograms(frame)
                                     angle_histo_global(i,12),&
                                     angle_histo_global(i,5),&
                                     angle_histo_global(i,6),&
-                                    angle_histo_global(i,7)
+                                    angle_histo_global(i,7),&
+                                    angle_histo_global(i,13),&
+                                    angle_histo_global(i,14),&
+                                    angle_histo_global(i,15)
 
                     end do
                 close(102)
