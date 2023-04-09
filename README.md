@@ -1,10 +1,10 @@
-# Parallelized code for computing material line statistics
+# Parallelized code for computing material line statistics from MHD simulations
 
 ## Requirements
 The `LAPACK` and `BLAS` libraries need to be installed and their paths set in the `make` file.
 
 ## How to use
-Compile the code using `make`. The executable can then be run on a SLURM cluster with
+Compile the code using the `make` file. The executable can then be run on a SLURM cluster, e.g. with
 ```
 srun -n <N-nodes> ./run < param/<parameter-file-name>.dat 
 ```
